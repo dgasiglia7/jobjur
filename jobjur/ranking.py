@@ -1,13 +1,11 @@
 """Pontua cada vaga pela compatibilidade com o perfil do candidato.
 
 Primeiro uma nota por regras (área, senioridade, localização, data), que funciona sem chave de API
-e serve de filtro. Com ANTHROPIC_API_KEY definida, as melhores vagas são reavaliadas pelo Claude,
+e serve de filtro. Com JOBJUR_API_KEY (ou ANTHROPIC_API_KEY) definida, as melhores vagas são reavaliadas pelo Claude,
 que dá uma nota de 0 a 100 e explica o motivo.
 """
 
 import json
-import os
-import re
 from datetime import date
 
 import anthropic
@@ -15,7 +13,7 @@ from pydantic import BaseModel
 
 from .fontes import Vaga
 from .fontes.base import slug
-from .perfil import MODELO, Perfil
+from .perfil import MODELO, Perfil, cliente_claude, tem_chave
 
 TERMOS_JURIDICOS = ("advog", "juridic", "compliance", "legal", "lawyer", "counsel", "paralegal",
                     "contencioso", "societari", "tributari", "trabalhist", "regulatori", "governanca")
@@ -99,7 +97,7 @@ INSTRUCAO = (
 
 def avaliar_com_claude(vagas: list[Vaga], perfil: Perfil, client: anthropic.Anthropic | None = None,
                        lote: int = 25) -> list[Avaliacao | None]:
-    client = client or anthropic.Anthropic()
+    client = client or cliente_claude()
     resultado: list[Avaliacao | None] = [None] * len(vagas)
     perfil_json = perfil.model_dump_json(exclude={"nome", "experiencias"})
     for inicio in range(0, len(vagas), lote):
@@ -137,7 +135,7 @@ def ranquear(vagas: list[Vaga], perfil: Perfil, usar_claude: bool | None = None,
         vaga.extras["nota"] = vaga.extras["nota_regras"]
 
     if usar_claude is None:
-        usar_claude = bool(os.environ.get("ANTHROPIC_API_KEY"))
+        usar_claude = tem_chave()
     if usar_claude and candidatas:
         topo = candidatas[:limite_claude]
         for vaga, avaliacao in zip(topo, avaliar_com_claude(topo, perfil)):

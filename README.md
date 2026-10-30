@@ -13,7 +13,7 @@ Agente que procura vagas de Direito nos principais sites de emprego do Brasil e 
 
 ```bash
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=...   # ou: ant auth login
+export JOBJUR_API_KEY=...   # ou ANTHROPIC_API_KEY, ou: ant auth login
 python -m jobjur.perfil dados/curriculo.pdf dados/perfil.json
 python -m jobjur.buscar dados/perfil.json
 ```
@@ -43,7 +43,7 @@ Empregos.com.br, BNE e Trabalha Brasil também responderam e podem virar novas f
 
 Cada vaga recebe uma nota de 0 a 100. A nota por regras considera área do Direito, senioridade,
 localização (cidade do candidato ou remoto) e data de publicação, e descarta vagas que não são
-jurídicas. Com `ANTHROPIC_API_KEY` definida, as 75 melhores vagas são reavaliadas pelo Claude, que dá
+jurídicas. Com `JOBJUR_API_KEY` definida (ou `ANTHROPIC_API_KEY`), as 75 melhores vagas são reavaliadas pelo Claude, que dá
 a nota final e explica em uma frase o que combina e o que não combina.
 
 ## Testes
@@ -51,5 +51,8 @@ a nota final e explica em uma frase o que combina e o que não combina.
 ```bash
 python -m pytest
 ```
+
+A chave usa o nome `JOBJUR_API_KEY` para que o Claude Code, se rodar no mesmo ambiente, não a use no
+lugar da assinatura.
 
 A pasta `dados/` fica fora do git, para que currículos e perfis não sejam publicados.
