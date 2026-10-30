@@ -46,7 +46,9 @@ def _tem(palavras: set[str], prefixos: tuple[str, ...]) -> bool:
 
 
 def eh_juridica(vaga: Vaga) -> bool:
-    return _tem(_palavras(vaga.titulo), TERMOS_JURIDICOS)
+    # "Pessoa Jurídica" aparece em vagas de vendas e em contratos PJ de outras profissões
+    titulo = slug(vaga.titulo).replace("pessoa-juridica", "")
+    return _tem(set(titulo.split("-")), TERMOS_JURIDICOS)
 
 
 def nota_por_regras(vaga: Vaga, perfil: Perfil, hoje: date | None = None) -> int:

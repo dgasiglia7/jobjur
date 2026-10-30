@@ -22,6 +22,10 @@ def test_vaga_nao_juridica_fica_de_fora():
     assert nota_por_regras(vaga("Analista de Marketing"), PERFIL, HOJE) == 0
 
 
+def test_pessoa_juridica_nao_e_vaga_juridica():
+    assert nota_por_regras(vaga("Gerente de Negócios PJ (Pessoa Jurídica)"), PERFIL, HOJE) == 0
+
+
 def test_senioridade_e_area_pesam():
     senior = nota_por_regras(vaga("Advogado Sênior - Contratos e Compliance"), PERFIL, HOJE)
     junior = nota_por_regras(vaga("Advogado Júnior - Contratos"), PERFIL, HOJE)

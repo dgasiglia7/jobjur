@@ -35,7 +35,8 @@ def buscar(cliente: Cliente, termo: str, local: Local | None = None, paginas: in
     vagas = []
     for pagina in range(paginas):
         novas = parse(cliente.get(URL, **params, start=pagina * 10))
-        vagas += novas
+        # a busca do LinkedIn mistura vagas de outros países quando o termo é genérico
+        vagas += [v for v in novas if any(p in v.local for p in ("Brasil", "Brazil"))]
         if len(novas) < 10:
             break
     return vagas

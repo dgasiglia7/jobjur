@@ -17,7 +17,7 @@ from .ranking import ranquear
 TERMOS_PADRAO = ["advogado", "jurídico"]
 
 
-def termos_do_perfil(perfil: Perfil, maximo: int = 5) -> list[str]:
+def termos_do_perfil(perfil: Perfil, maximo: int = 10) -> list[str]:
     """Termos amplos primeiro (trazem mais vagas), depois as palavras-chave do perfil."""
     termos = []
     for termo in TERMOS_PADRAO + perfil.palavras_chave:
