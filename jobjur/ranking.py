@@ -16,7 +16,7 @@ from .fontes.base import slug
 from .perfil import MODELO, Perfil, cliente_claude, tem_chave
 
 TERMOS_JURIDICOS = ("advog", "juridic", "compliance", "legal", "lawyer", "counsel", "paralegal",
-                    "contencioso", "societari", "tributari", "trabalhist", "regulatori", "governanca")
+                    "contencioso", "societari", "tributari", "trabalhist", "regulatori")
 NIVEL_BAIXO = ("estagi", "trainee", "junior", "jr", "assistente", "auxiliar", "aprendiz")
 NIVEL_ALTO = ("senior", "sr", "especialista", "coordenador", "coordenadora", "gerente", "head", "lider",
               "consultor", "consultora", "pleno-senior")
