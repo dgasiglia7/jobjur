@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+# Dados pessoais (currículos e perfis gerados) ficam fora do git
+dados/
