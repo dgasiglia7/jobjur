@@ -33,11 +33,13 @@ Opções úteis: `--termos "advogado,compliance"`, `--fontes "Gupy,LinkedIn"`, `
 | Vagas.com | ✅ coleta | Só a primeira página (cerca de 30 vagas por busca) |
 | Catho | ✅ coleta | Título, empresa, cidade e salário |
 | InfoJobs | ✅ coleta | Filtro de cidade nem sempre funciona; o ranking compensa |
-| Indeed | ❌ bloqueado | Verificação anti-robô exige login |
+| Empregos.com.br | ✅ coleta | Título, empresa, cidade, data e descrição |
+| BNE | ✅ coleta | Sem data na listagem; às vezes recusa buscas seguidas (403) |
+| Trabalha Brasil | ✅ coleta | Títulos genéricos ("Advogado"), sem descrição na listagem |
+| Indeed | ❌ bloqueado | Verificação anti-robô exige login; há conector oficial do Indeed para usar nas conversas com o Claude |
 | Glassdoor | ❌ bloqueado | Responde 403 |
 | Jusbrasil | ❌ bloqueado | Responde 403 |
 
-Empregos.com.br, BNE e Trabalha Brasil também responderam e podem virar novas fontes.
 
 ## Ranking
 
