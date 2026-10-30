@@ -18,7 +18,7 @@ python -m jobjur.perfil dados/curriculo.pdf dados/perfil.json
 python -m jobjur.buscar dados/perfil.json
 ```
 
-A busca gera `dados/vagas-AAAA-MM-DD.md` (relatório com as vagas de nota 60 ou mais) e o `.json` com
+A busca gera `dados/vagas-AAAA-MM-DD-HHhMM.md`, (relatório com as vagas de nota 60 ou mais, com data e hora de Brasília no nome e no cabeçalho) e o `.json` com
 todas as vagas jurídicas encontradas. Vagas que não apareceram em buscas anteriores ganham 🆕.
 
 Opções úteis: `--termos "advogado,compliance"`, `--fontes "Gupy,LinkedIn"`, `--nota-minima 70` e

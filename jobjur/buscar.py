@@ -6,8 +6,9 @@ uso: python -m jobjur.buscar dados/perfil.json [--termos "advogado,compliance"] 
 import argparse
 import json
 import logging
-from datetime import date
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from .coleta import coletar
 from .fontes import FONTES, Local, Vaga
@@ -15,6 +16,7 @@ from .perfil import Perfil
 from .ranking import ranquear
 
 TERMOS_PADRAO = ["advogado", "jurídico"]
+FUSO = ZoneInfo("America/Sao_Paulo")
 
 
 def termos_do_perfil(perfil: Perfil, maximo: int = 10) -> list[str]:
@@ -26,8 +28,8 @@ def termos_do_perfil(perfil: Perfil, maximo: int = 10) -> list[str]:
     return termos[:maximo]
 
 
-def relatorio(vagas: list[Vaga], perfil: Perfil, minimo: int) -> str:
-    linhas = [f"# Vagas para {perfil.nome} em {date.today():%d/%m/%Y}", ""]
+def relatorio(vagas: list[Vaga], perfil: Perfil, minimo: int, quando: datetime) -> str:
+    linhas = [f"# Vagas para {perfil.nome}", "", f"Gerado em {quando:%d/%m/%Y às %H:%M} (horário de Brasília).", ""]
     boas = [v for v in vagas if v.extras["nota"] >= minimo]
     linhas.append(f"{len(boas)} vagas com nota a partir de {minimo}, de {len(vagas)} vagas jurídicas encontradas.")
     for v in boas:
@@ -66,10 +68,11 @@ def main() -> None:
         v.extras["nova"] = v.url not in historico
     historico_arq.write_text(json.dumps(sorted(historico | {v.url for v in vagas}), indent=0))
 
-    base = args.saida / f"vagas-{date.today():%Y-%m-%d}"
+    quando = datetime.now(FUSO)
+    base = args.saida / f"vagas-{quando:%Y-%m-%d-%Hh%M}"
     base.with_suffix(".json").write_text(
         json.dumps([v.to_dict() for v in vagas], ensure_ascii=False, indent=2), encoding="utf-8")
-    base.with_suffix(".md").write_text(relatorio(vagas, perfil, args.nota_minima), encoding="utf-8")
+    base.with_suffix(".md").write_text(relatorio(vagas, perfil, args.nota_minima, quando), encoding="utf-8")
     logging.info("%d vagas jurídicas ranqueadas. Relatório em %s", len(vagas), base.with_suffix(".md"))
 
 

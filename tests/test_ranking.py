@@ -86,3 +86,14 @@ def test_avaliar_com_claude_em_lotes():
     resultado = avaliar_com_claude(vagas, PERFIL, client=cliente, lote=2)
     assert len(chamadas) == 2
     assert [a.nota if a else None for a in resultado] == [70, None, 70]
+
+
+def test_relatorio_tem_data_e_hora():
+    from datetime import datetime
+
+    from jobjur.buscar import FUSO, relatorio
+
+    v = vaga("Advogado Sênior")
+    v.extras["nota"] = 80
+    texto = relatorio([v], PERFIL, 60, datetime(2026, 10, 30, 20, 5, tzinfo=FUSO))
+    assert "Gerado em 30/10/2026 às 20:05 (horário de Brasília)." in texto
