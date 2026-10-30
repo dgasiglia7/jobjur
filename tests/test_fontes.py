@@ -65,3 +65,11 @@ def test_infojobs_detalhes():
 
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs"}
+
+
+def test_vagas_com_datas_relativas():
+    hoje = date(2026, 10, 30)
+    assert vagas_com._data("Hoje", hoje) == "2026-10-30"
+    assert vagas_com._data("Ontem", hoje) == "2026-10-29"
+    assert vagas_com._data("Há 3 dias", hoje) == "2026-10-27"
+    assert vagas_com._data("30/09/2026", hoje) == "2026-09-30"

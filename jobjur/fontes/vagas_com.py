@@ -1,12 +1,28 @@
 """Vagas.com.br; a primeira página traz cerca de 30 vagas."""
 
-from datetime import datetime
+import re
+from datetime import date, datetime, timedelta
 
 from bs4 import BeautifulSoup
 
 from .base import Cliente, Local, Vaga, limpar, slug
 
 NOME = "Vagas.com"
+
+
+def _data(texto: str, hoje: date | None = None) -> str:
+    hoje = hoje or date.today()
+    texto = texto.lower()
+    if "hoje" in texto:
+        return hoje.isoformat()
+    if "ontem" in texto:
+        return (hoje - timedelta(days=1)).isoformat()
+    if m := re.search(r"(\d+) dias", texto):
+        return (hoje - timedelta(days=int(m.group(1)))).isoformat()
+    try:
+        return datetime.strptime(texto, "%d/%m/%Y").date().isoformat()
+    except ValueError:
+        return ""
 
 
 def parse(html: str) -> list[Vaga]:
@@ -19,10 +35,7 @@ def parse(html: str) -> list[Vaga]:
         if local and (dica := local.select_one(".tooltip-place")):
             dica.extract()
         data = limpar(card.select_one(".data-publicacao").get_text()) if card.select_one(".data-publicacao") else ""
-        try:
-            data = datetime.strptime(data, "%d/%m/%Y").date().isoformat()
-        except ValueError:
-            pass
+        data = _data(data)
         empresa, nivel, descricao = (card.select_one(s) for s in (".emprVaga", ".nivelVaga", ".detalhes"))
         vagas.append(Vaga(
             fonte=NOME,
