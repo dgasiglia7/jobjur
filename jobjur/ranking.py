@@ -20,6 +20,14 @@ TERMOS_JURIDICOS = ("advog", "juridic", "compliance", "legal", "lawyer", "counse
 NIVEL_BAIXO = ("estagi", "trainee", "junior", "jr", "assistente", "auxiliar", "aprendiz")
 NIVEL_ALTO = ("senior", "sr", "especialista", "coordenador", "coordenadora", "gerente", "head", "lider",
               "consultor", "consultora", "pleno-senior")
+# Especialidades do Direito que costumam aparecer no título; uma vaga só de especialidades fora do perfil
+# perde pontos. Termos genéricos (consultivo, contencioso, cível, corporativo) não entram, porque
+# aparecem junto de qualquer especialidade.
+AREAS = ("tributari", "fiscal", "trabalhist", "previdenciari", "penal", "criminal", "familia", "sucesso",
+         "imobiliari", "ambiental", "regulatori", "societari", "bancari", "consumidor", "propriedade",
+         "marcas", "patente", "lgpd", "privacidade", "digital", "eleitoral", "agrario", "agronegocio",
+         "recuperacao", "falencia", "concorrencial", "aduaneir", "energia", "saude",
+         "contrat", "compliance", "seguro", "governanca", "riscos")
 PALAVRAS_VAZIAS = {"de", "da", "do", "das", "dos", "e", "em", "com", "para", "a", "o", "incluindo", "gestao",
                    "advogado", "advogada", "juridico", "juridica", "direito"}
 
@@ -48,6 +56,11 @@ def nota_por_regras(vaga: Vaga, perfil: Perfil, hoje: date | None = None) -> int
     titulo, texto = _palavras(vaga.titulo), _palavras(f"{vaga.titulo} {vaga.descricao}")
     alvo = _palavras_perfil(perfil)
     nota = 40 + 8 * len(titulo & alvo) + 2 * len((texto - titulo) & alvo)
+
+    areas_vaga = {a for a in AREAS if any(p.startswith(a) for p in titulo)}
+    areas_perfil = {a for a in AREAS if any(p.startswith(a) for p in alvo)}
+    if areas_vaga and not areas_vaga & areas_perfil:
+        nota -= 25
 
     senior = perfil.anos_experiencia >= 8 or slug(perfil.senioridade) in {"senior", "especialista", "coordenacao", "gerencia"}
     if senior:

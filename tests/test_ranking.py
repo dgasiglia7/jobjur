@@ -28,6 +28,13 @@ def test_senioridade_e_area_pesam():
     assert senior > junior
 
 
+def test_area_fora_do_perfil_perde_pontos():
+    contratos = nota_por_regras(vaga("Advogado Sênior - Contratos"), PERFIL, HOJE)
+    tributario = nota_por_regras(vaga("Advogado Sênior - Tributário"), PERFIL, HOJE)
+    generico = nota_por_regras(vaga("Advogado Sênior"), PERFIL, HOJE)
+    assert contratos > generico > tributario
+
+
 def test_localizacao():
     rio = nota_por_regras(vaga("Advogado Sênior", "Rio de Janeiro - RJ"), PERFIL, HOJE)
     remoto = nota_por_regras(vaga("Advogado Sênior", "São Paulo - SP", modalidade="remoto"), PERFIL, HOJE)
