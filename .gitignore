@@ -4,3 +4,5 @@ __pycache__/
 .env
 # Dados pessoais (currículos e perfis gerados) ficam fora do git
 dados/
+curriculo/
+*.pdf
