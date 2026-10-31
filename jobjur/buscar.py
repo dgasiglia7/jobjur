@@ -11,6 +11,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from .coleta import coletar
+from . import painel
 from .fontes import FONTES, Local, Vaga
 from .perfil import Perfil
 from .ranking import ranquear
@@ -49,6 +50,8 @@ def main() -> None:
     parser.add_argument("--sem-claude", action="store_true", help="usar só a nota por regras")
     parser.add_argument("--nota-minima", type=int, default=60, help="nota mínima para entrar no relatório")
     parser.add_argument("--saida", type=Path, default=Path("dados"), help="pasta de saída")
+    parser.add_argument("--painel", type=Path, help="também acrescenta as vagas boas a este vagas.json do painel")
+    parser.add_argument("--nota-painel", type=int, default=painel.NOTA_MINIMA, help="nota mínima para entrar no painel")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
@@ -74,6 +77,9 @@ def main() -> None:
         json.dumps([v.to_dict() for v in vagas], ensure_ascii=False, indent=2), encoding="utf-8")
     base.with_suffix(".md").write_text(relatorio(vagas, perfil, args.nota_minima, quando), encoding="utf-8")
     logging.info("%d vagas jurídicas ranqueadas. Relatório em %s", len(vagas), base.with_suffix(".md"))
+    if args.painel:
+        novas = painel.atualizar([v.to_dict() for v in vagas], args.painel, args.nota_painel, quando)
+        logging.info("%d vagas novas no painel %s", novas, args.painel)
 
 
 if __name__ == "__main__":

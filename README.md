@@ -58,3 +58,16 @@ A chave usa o nome `JOBJUR_API_KEY` para que o Claude Code, se rodar no mesmo am
 lugar da assinatura.
 
 A pasta `dados/` fica fora do git, para que currículos e perfis não sejam publicados.
+
+## Painel online (GitHub Pages)
+
+`docs/` é um site estático com o painel de vagas: cada vaga tem os botões Pendente, Currículo enviado, Cadastrada e Descartada, e um campo de anotações.
+
+- `docs/vagas.json`: as vagas. A busca acrescenta as novas com nota a partir de 65 (`python -m jobjur.buscar ... --painel docs/vagas.json`) e nunca altera as que já estão lá. Vagas revisadas à mão têm `revisada: true`; as da busca automática aparecem com a etiqueta "automática".
+- `docs/status.json`: o que ela marcou. Só o painel grava esse arquivo, pela API do GitHub, com um token fine-grained (Contents: Read and write, só no repositório jobjur) guardado no navegador. Sem token o painel abre só para leitura.
+- `.github/workflows/painel.yml`: busca todo dia às 07:00 de Brasília (ou pelo botão "Run workflow"), grava as vagas novas e publica o site.
+
+Para ativar:
+1. Settings > Pages > Source: **GitHub Actions**.
+2. Settings > Secrets and variables > Actions > New repository secret `JOBJUR_PERFIL` com o conteúdo do `perfil.json`.
+3. Actions > "Busca diária e painel" > Run workflow.
