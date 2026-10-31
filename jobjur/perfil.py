@@ -2,6 +2,7 @@
 
 import base64
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -9,6 +10,18 @@ import anthropic
 from pydantic import BaseModel, Field
 
 MODELO = "claude-opus-5-5"
+# Nome próprio para a chave, para que o Claude Code no mesmo ambiente não a use no lugar da assinatura
+VARIAVEL_CHAVE = "JOBJUR_API_KEY"
+
+
+def tem_chave() -> bool:
+    return bool(os.environ.get(VARIAVEL_CHAVE) or os.environ.get("ANTHROPIC_API_KEY"))
+
+
+def cliente_claude() -> anthropic.Anthropic:
+    """Usa JOBJUR_API_KEY quando definida; senão, as credenciais padrão do SDK (ANTHROPIC_API_KEY etc.)."""
+    chave = os.environ.get(VARIAVEL_CHAVE)
+    return anthropic.Anthropic(api_key=chave) if chave else anthropic.Anthropic()
 
 
 class Experiencia(BaseModel):
@@ -44,7 +57,7 @@ INSTRUCAO = (
 
 
 def extrair_perfil(caminho_pdf: Path, client: anthropic.Anthropic | None = None) -> Perfil:
-    client = client or anthropic.Anthropic()
+    client = client or cliente_claude()
     pdf_b64 = base64.standard_b64encode(caminho_pdf.read_bytes()).decode()
     resposta = client.beta.messages.parse(
         model=MODELO,
