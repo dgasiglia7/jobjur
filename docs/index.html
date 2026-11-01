@@ -56,6 +56,7 @@ input[type=search]{flex:1;min-width:160px}
 .card.enviado{border-left-color:var(--sent)}
 .card.cadastrado{border-left-color:var(--reg)}
 .card.descartada,.card.duplicada{border-left-color:var(--disc);opacity:.7}
+.card.encerrada{opacity:.75}
 .card.encerrada{border-left-color:var(--closed)}
 .nota{grid-row:span 3;width:52px;height:52px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
 .nota small{font-size:10px;font-weight:500;opacity:.8;margin-top:-2px}
@@ -73,6 +74,7 @@ input[type=search]{flex:1;min-width:160px}
 .st button[data-s=pendente].on{background:var(--pend-soft);color:var(--pend);border-color:transparent;font-weight:600}
 .st button[data-s=enviado].on{background:var(--sent-soft);color:var(--sent);border-color:transparent;font-weight:600}
 .st button[data-s=cadastrado].on{background:var(--reg-soft);color:var(--reg);border-color:transparent;font-weight:600}
+.st button[data-s=encerrada].on{background:transparent;color:var(--closed);border-color:currentColor;font-weight:600}
 .st button[data-s=descartada].on,.st button[data-s=duplicada].on{background:var(--disc-soft);color:var(--disc);border-color:transparent;font-weight:600}
 .st button:disabled{cursor:default}
 .when{font-size:12px;color:var(--muted)}
@@ -131,6 +133,7 @@ dialog .row button.primary{border:0;background:var(--accent);color:var(--bg)}
       <button data-f="todas">Todas</button>
       <button data-f="descartadas">Descartadas</button>
       <button data-f="duplicadas">Duplicadas</button>
+      <button data-f="encerradas">Encerradas</button>
     </div>
     <select id="regiao" aria-label="Região">
       <option value="">Todas as regiões</option>
@@ -170,7 +173,9 @@ dialog .row button.primary{border:0;background:var(--accent);color:var(--bg)}
 const REPO = "dgasiglia7/jobjur", RAMO = "main", API = "https://api.github.com/repos/" + REPO + "/contents/docs/";
 const GRUPOS={top:"Muito compatíveis",ressalvas:"Valem olhar, com ressalvas",sp:"Boas, mas em São Paulo",outras:"Outras"};
 const ORDEM=["top","ressalvas","sp","outras"];
-const ROTULO={pendente:"Pendente",enviado:"Currículo enviado",cadastrado:"Cadastrada",descartada:"Descartada",duplicada:"Duplicado"};
+const ROTULO={pendente:"Pendente",enviado:"Currículo enviado",cadastrado:"Cadastrada",descartada:"Descartada",duplicada:"Duplicado",encerrada:"Encerrado"};
+// vaga encerrada no site conta como "Encerrado" enquanto a pessoa não marcou outra coisa
+function efetivo(v){const s=v.status||"pendente";return s==="pendente"&&v.encerrada&&!v.reaberta?"encerrada":s;}
 let vagas=[],filtro="faltam",status={},painelAtualizado="";
 const $=id=>document.getElementById(id);
 const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch{}}};
@@ -222,19 +227,20 @@ function gravarStatus(id,patch,msg){
 
 // ---------- tela ----------
 function render(){
-  const abertas=vagas.filter(v=>!v.encerrada&&v.status!=="descartada"&&v.status!=="duplicada");
+  const abertas=vagas.filter(v=>!["descartada","duplicada","encerrada"].includes(efetivo(v)));
   const env=vagas.filter(v=>v.status==="enviado").length, cad=vagas.filter(v=>v.status==="cadastrado").length;
-  const faltam=abertas.filter(v=>v.status==="pendente").length;
+  const faltam=abertas.filter(v=>efetivo(v)==="pendente").length;
   $("sTotal").textContent=abertas.length;$("sFaltam").textContent=faltam;$("sEnv").textContent=env;$("sCad").textContent=cad;
   $("prog").style.width=Math.round(100*(abertas.length-faltam)/(abertas.length||1))+"%";
   $("sub").textContent=vagas.length?`${vagas.length} vagas no painel · última busca em ${fmt(painelAtualizado)} (horário de Brasília)`:"Nenhuma vaga ainda";
   const q=$("q").value.trim().toLowerCase(), reg=$("regiao").value;
   let lista=vagas.filter(v=>{
-    const s=v.status;
-    if(filtro==="faltam"&&(s!=="pendente"||v.encerrada))return false;
+    const s=efetivo(v);
+    if(filtro==="faltam"&&s!=="pendente")return false;
     if(filtro==="aplicadas"&&!(s==="enviado"||s==="cadastrado"))return false;
     if(filtro==="descartadas"&&s!=="descartada")return false;
     if(filtro==="duplicadas"&&s!=="duplicada")return false;
+    if(filtro==="encerradas"&&s!=="encerrada")return false;
     if(reg&&v.regiao!==reg)return false;
     if(q&&!(`${v.titulo} ${v.empresa}`.toLowerCase().includes(q)))return false;
     return true;});
@@ -249,16 +255,16 @@ function render(){
     if(!itens.length)continue;
     html+=`<div class="group-title">${GRUPOS[g]} · ${itens.length}</div>`;
     for(const v of itens){
-      const s=v.status;
+      const s=efetivo(v);
       const nova=v.adicionada_em&&new Date(v.adicionada_em).getTime()>recente&&s==="pendente";
-      html+=`<article class="card ${esc(s)} ${v.encerrada?"encerrada":""}" data-id="${esc(v.id)}">
+      html+=`<article class="card ${esc(s)}" data-id="${esc(v.id)}">
         <div class="nota">${esc(v.nota??"–")}<small>nota</small></div>
-        <h2 class="t"><a href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener">${esc(v.titulo)}</a>${nova?'<span class="badge">nova</span>':""}${v.encerrada?'<span class="badge closed">inscrições encerradas</span>':""}${v.revisada===false?'<span class="badge auto" title="Encontrada pela busca automática, ainda sem revisão">automática</span>':""}</h2>
+        <h2 class="t"><a href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener">${esc(v.titulo)}</a>${nova?'<span class="badge">nova</span>':""}${s==="encerrada"&&(v.status||"pendente")!=="encerrada"?'<span class="badge closed">encerrada no site</span>':""}${v.revisada===false?'<span class="badge auto" title="Encontrada pela busca automática, ainda sem revisão">automática</span>':""}</h2>
         <div class="meta"><span>${esc(v.empresa)}</span><span>${esc(v.local)}</span>${v.modalidade?`<span>${esc(v.modalidade)}</span>`:""}${v.publicada?`<span>publicada em ${dia(v.publicada)}</span>`:""}<span>via ${esc(v.fonte)}</span></div>
         ${v.combina||v.atencao?`<p class="resumo">${v.combina?esc(v.combina):""}${v.atencao?` <em>Atenção: ${esc(v.atencao)}</em>`:""}</p>`:""}
         <div class="actions">
           <div class="st" role="group" aria-label="Situação">${Object.keys(ROTULO).map(k=>`<button data-s="${k}" class="${s===k?"on":""}" title="${s===k&&k!=="pendente"?"Clique de novo para voltar a Pendente":""}" ${pode?"":"disabled"}>${ROTULO[k]}</button>`).join("")}</div>
-          ${v.atualizado_em&&s!=="pendente"?`<span class="when">${ROTULO[s]} em ${fmt(v.atualizado_em)}</span>`:""}
+          ${s!=="pendente"&&(s===v.status?v.atualizado_em:v.encerrada_em)?`<span class="when">${s===v.status?ROTULO[s]:"Encerrada no site"} em ${fmt(s===v.status?v.atualizado_em:v.encerrada_em)}</span>`:""}
           <a class="open" href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener">Abrir vaga ↗</a>
         </div>
         <div class="notes"><textarea placeholder="Anotações (contato, data da entrevista…)" ${pode?"":"disabled"}>${esc(v.anotacoes||"")}</textarea></div>
@@ -294,9 +300,10 @@ $("list").addEventListener("click",e=>{
   const id=b.closest(".card").dataset.id,clicado=b.dataset.s,v=vagas.find(x=>x.id===id);
   if(!v)return;
   // clicar de novo no status já marcado volta para Pendente
-  const s=v.status===clicado?"pendente":clicado;if(v.status===s)return;
+  const atual=efetivo(v),s=atual===clicado?"pendente":clicado;if(atual===s)return;
+  const patch={status:s};if(atual==="encerrada"&&s==="pendente"&&v.encerrada){patch.reaberta=true;v.reaberta=true;}
   v.status=s;v.atualizado_em=new Date().toISOString();render();
-  gravarStatus(id,{status:s},`Marcada como "${ROTULO[s]}"`);
+  gravarStatus(id,patch,`Marcada como "${ROTULO[s]}"`);
 });
 $("list").addEventListener("change",e=>{
   if(e.target.tagName!=="TEXTAREA")return;

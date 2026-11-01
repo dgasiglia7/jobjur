@@ -6,18 +6,23 @@ não são alteradas, para não perder anotações feitas à mão. O status de ca
 painel escreve, então a busca nunca apaga o que a Daniele marcou.
 
 uso: python -m jobjur.painel dados/vagas-AAAA-MM-DD-HHhMM.json [--painel docs/vagas.json]
+     python -m jobjur.painel verificar [--painel docs/vagas.json] [--status docs/status.json]
 """
 
 import argparse
 import json
+import logging
+import sys
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from .fontes.base import slug
+from .encerradas import encerrada
+from .fontes.base import Cliente, slug
 
 FUSO = ZoneInfo("America/Sao_Paulo")
 PAINEL_PADRAO = Path("docs/vagas.json")
+STATUS_PADRAO = Path("docs/status.json")
 NOTA_MINIMA = 65
 
 
@@ -93,11 +98,54 @@ def atualizar(vagas: list[dict], caminho: Path = PAINEL_PADRAO, minimo: int = NO
         novas += 1
     painel["atualizado_em"] = quando.isoformat(timespec="minutes")
     caminho.parent.mkdir(parents=True, exist_ok=True)
-    caminho.write_text(json.dumps(painel, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    salvar(painel, caminho)
     return novas
 
 
+def salvar(painel: dict, caminho: Path) -> None:
+    caminho.write_text(json.dumps(painel, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def verificar(caminho: Path = PAINEL_PADRAO, caminho_status: Path = STATUS_PADRAO,
+              cliente: Cliente | None = None, quando: datetime | None = None, checar=encerrada) -> int:
+    """Marca como encerradas as vagas pendentes que o site já fechou. Devolve quantas foram marcadas.
+
+    Só olha vagas que a pessoa ainda não marcou (sem status ou Pendente): o que ela marcou à mão,
+    inclusive "Encerrado", fica como está.
+    """
+    quando = quando or datetime.now(FUSO)
+    cliente = cliente or Cliente()
+    painel = ler(caminho)
+    status = json.loads(caminho_status.read_text(encoding="utf-8")) if caminho_status.exists() else {}
+    marcadas = 0
+    for chave, vaga in painel["vagas"].items():
+        if vaga.get("encerrada") or status.get(chave, {}).get("status", "pendente") != "pendente":
+            continue
+        try:
+            fechada = checar(cliente, vaga["url"], quando.date())
+        except Exception as erro:  # um site com página estranha não pode parar a verificação
+            logging.warning("Não consegui verificar %s: %s", vaga["url"], erro)
+            continue
+        if fechada:
+            vaga["encerrada"] = True
+            vaga["encerrada_em"] = quando.isoformat(timespec="minutes")
+            marcadas += 1
+            logging.info("Encerrada: %s (%s)", vaga["titulo"], vaga["url"])
+    salvar(painel, caminho)
+    return marcadas
+
+
 def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    if sys.argv[1:2] == ["verificar"]:
+        parser = argparse.ArgumentParser(prog="python -m jobjur.painel verificar",
+                                         description="Marca as vagas pendentes que já foram encerradas nos sites.")
+        parser.add_argument("--painel", type=Path, default=PAINEL_PADRAO)
+        parser.add_argument("--status", type=Path, default=STATUS_PADRAO)
+        args = parser.parse_args(sys.argv[2:])
+        print(f"{verificar(args.painel, args.status)} vagas marcadas como encerradas")
+        return
     parser = argparse.ArgumentParser(description="Acrescenta ao painel as vagas de uma busca.")
     parser.add_argument("resultado", type=Path, help="JSON gerado por python -m jobjur.buscar")
     parser.add_argument("--painel", type=Path, default=PAINEL_PADRAO)

@@ -65,6 +65,7 @@ A pasta `dados/` fica fora do git, para que currículos e perfis não sejam publ
 
 - `docs/vagas.json`: as vagas. A busca acrescenta as novas com nota a partir de 65 (`python -m jobjur.buscar ... --painel docs/vagas.json`) e nunca altera as que já estão lá. Vagas revisadas à mão têm `revisada: true`; as da busca automática aparecem com a etiqueta "automática".
 - `docs/status.json`: o que ela marcou. Só o painel grava esse arquivo, pela API do GitHub, com um token fine-grained (Contents: Read and write, só no repositório jobjur) guardado no navegador. Sem token o painel abre só para leitura.
+- `python -m jobjur.painel verificar`: abre cada vaga ainda pendente e marca `encerrada: true` em `docs/vagas.json` quando o site mostra que ela fechou (status da Gupy, aviso de vaga encerrada, página removida). Na dúvida, não marca. No painel ela aparece como "Encerrado", e a pessoa também pode marcar à mão.
 - `.github/workflows/painel.yml`: busca todo dia às 07:00 de Brasília (ou pelo botão "Run workflow"), grava as vagas novas e publica o site.
 
 Para ativar:

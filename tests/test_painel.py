@@ -36,3 +36,34 @@ def test_atualizar_acrescenta_sem_apagar(tmp_path):
     dados = json.loads(arq.read_text())
     assert dados["vagas"][chave]["atencao"] == "pede inglês"
     assert dados["vagas"][painel.id_vaga("Coordenador Jurídico", "ACME")]["grupo"] == "sp"
+
+
+def test_verificar_marca_so_pendentes(tmp_path):
+    arq, st = tmp_path / "vagas.json", tmp_path / "status.json"
+    painel.atualizar([vaga("A", "https://a", 80), vaga("B", "https://b", 80), vaga("C", "https://c", 80)], arq, 65)
+    st.write_text(json.dumps({painel.id_vaga("B", "ACME"): {"status": "enviado"}}))
+    vistos = []
+
+    def checar(cliente, url, hoje):
+        vistos.append(url)
+        return url != "https://c"
+
+    assert painel.verificar(arq, st, cliente=object(), checar=checar) == 1
+    dados = json.loads(arq.read_text())["vagas"]
+    assert dados[painel.id_vaga("A", "ACME")]["encerrada"] is True
+    assert "encerrada_em" in dados[painel.id_vaga("A", "ACME")]
+    assert dados[painel.id_vaga("C", "ACME")]["encerrada"] is False
+    assert vistos == ["https://a", "https://c"]  # B já foi marcada pela pessoa, não é verificada
+
+
+def test_sinais_de_vaga_encerrada():
+    from datetime import date
+    from jobjur import encerradas
+    proxima = '<script id="__NEXT_DATA__">{"props":{"pageProps":{"job":{"status":"%s","expiresAt":"%s"}}}}</script>'
+    hoje = date(2026, 11, 1)
+    assert encerradas.gupy(proxima % ("published", "2026-12-01"), hoje) is False
+    assert encerradas.gupy(proxima % ("frozen", "2026-12-01"), hoje) is True
+    assert encerradas.gupy(proxima % ("published", "2026-10-30"), hoje) is True
+    assert encerradas.por_aviso("<h1>Advogado</h1><p>Essa vaga foi encerrada!</p>")
+    # o aviso só vale no texto visível, não em traduções dentro de scripts
+    assert not encerradas.por_aviso('<h1>Advogado</h1><script>{"t":"Candidaturas encerradas"}</script>')
