@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-01T17:58-03:00",
+ "atualizado_em": "2026-11-01T18:50-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -278,7 +278,8 @@
    "atencao": "exige experiência com CVM e ANBIMA.",
    "combina": "Compliance e contratos.",
    "empresa": "Instituição financeira",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-01T18:50-03:00",
    "fonte": "Gupy",
    "grupo": "sp",
    "local": "São Paulo (Faria Lima)",
