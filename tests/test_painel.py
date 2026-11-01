@@ -67,3 +67,18 @@ def test_sinais_de_vaga_encerrada():
     assert encerradas.por_aviso("<h1>Advogado</h1><p>Essa vaga foi encerrada!</p>")
     # o aviso só vale no texto visível, não em traduções dentro de scripts
     assert not encerradas.por_aviso('<h1>Advogado</h1><script>{"t":"Candidaturas encerradas"}</script>')
+
+
+def test_verificar_reabre_vaga_que_voltou(tmp_path):
+    arq, st = tmp_path / "vagas.json", tmp_path / "status.json"
+    painel.atualizar([vaga("A", "https://a", 80), vaga("B", "https://b", 80)], arq, 65)
+    abertas = {"https://a": False, "https://b": False}
+    checar = lambda cliente, url, hoje: abertas[url]  # noqa: E731
+
+    abertas["https://a"] = True  # congelada
+    assert painel.verificar(arq, st, cliente=object(), checar=checar) == 1
+    abertas["https://a"] = False  # descongelada
+    abertas["https://b"] = None  # site não respondeu: nada muda
+    assert painel.verificar(arq, st, cliente=object(), checar=checar) == 1
+    a = json.loads(arq.read_text())["vagas"][painel.id_vaga("A", "ACME")]
+    assert a["encerrada"] is False and "encerrada_em" not in a and "reaberta_em" in a
