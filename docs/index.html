@@ -255,7 +255,7 @@ function render(){
         <div class="meta"><span>${esc(v.empresa)}</span><span>${esc(v.local)}</span>${v.modalidade?`<span>${esc(v.modalidade)}</span>`:""}${v.publicada?`<span>publicada em ${dia(v.publicada)}</span>`:""}<span>via ${esc(v.fonte)}</span></div>
         ${v.combina||v.atencao?`<p class="resumo">${v.combina?esc(v.combina):""}${v.atencao?` <em>Atenção: ${esc(v.atencao)}</em>`:""}</p>`:""}
         <div class="actions">
-          <div class="st" role="group" aria-label="Situação">${Object.keys(ROTULO).map(k=>`<button data-s="${k}" class="${s===k?"on":""}" ${pode?"":"disabled"}>${ROTULO[k]}</button>`).join("")}</div>
+          <div class="st" role="group" aria-label="Situação">${Object.keys(ROTULO).map(k=>`<button data-s="${k}" class="${s===k?"on":""}" title="${s===k&&k!=="pendente"?"Clique de novo para voltar a Pendente":""}" ${pode?"":"disabled"}>${ROTULO[k]}</button>`).join("")}</div>
           ${v.atualizado_em&&s!=="pendente"?`<span class="when">${ROTULO[s]} em ${fmt(v.atualizado_em)}</span>`:""}
           <a class="open" href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener">Abrir vaga ↗</a>
         </div>
@@ -289,8 +289,10 @@ async function carregar(silencioso){
 
 $("list").addEventListener("click",e=>{
   const b=e.target.closest(".st button");if(!b||b.disabled)return;
-  const id=b.closest(".card").dataset.id,s=b.dataset.s,v=vagas.find(x=>x.id===id);
-  if(!v||v.status===s)return;
+  const id=b.closest(".card").dataset.id,clicado=b.dataset.s,v=vagas.find(x=>x.id===id);
+  if(!v)return;
+  // clicar de novo no status já marcado volta para Pendente
+  const s=v.status===clicado?"pendente":clicado;if(v.status===s)return;
   v.status=s;v.atualizado_em=new Date().toISOString();render();
   gravarStatus(id,{status:s},`Marcada como "${ROTULO[s]}"`);
 });
