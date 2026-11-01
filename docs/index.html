@@ -55,7 +55,7 @@ input[type=search]{flex:1;min-width:160px}
 .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--pend);border-radius:12px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);display:grid;grid-template-columns:52px 1fr;gap:4px 14px}
 .card.enviado{border-left-color:var(--sent)}
 .card.cadastrado{border-left-color:var(--reg)}
-.card.descartada{border-left-color:var(--disc);opacity:.7}
+.card.descartada,.card.duplicada{border-left-color:var(--disc);opacity:.7}
 .card.encerrada{border-left-color:var(--closed)}
 .nota{grid-row:span 3;width:52px;height:52px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
 .nota small{font-size:10px;font-weight:500;opacity:.8;margin-top:-2px}
@@ -73,7 +73,7 @@ input[type=search]{flex:1;min-width:160px}
 .st button[data-s=pendente].on{background:var(--pend-soft);color:var(--pend);border-color:transparent;font-weight:600}
 .st button[data-s=enviado].on{background:var(--sent-soft);color:var(--sent);border-color:transparent;font-weight:600}
 .st button[data-s=cadastrado].on{background:var(--reg-soft);color:var(--reg);border-color:transparent;font-weight:600}
-.st button[data-s=descartada].on{background:var(--disc-soft);color:var(--disc);border-color:transparent;font-weight:600}
+.st button[data-s=descartada].on,.st button[data-s=duplicada].on{background:var(--disc-soft);color:var(--disc);border-color:transparent;font-weight:600}
 .st button:disabled{cursor:default}
 .when{font-size:12px;color:var(--muted)}
 .notes{grid-column:2;margin-top:6px}
@@ -130,6 +130,7 @@ dialog .row button.primary{border:0;background:var(--accent);color:var(--bg)}
       <button data-f="aplicadas">Aplicadas</button>
       <button data-f="todas">Todas</button>
       <button data-f="descartadas">Descartadas</button>
+      <button data-f="duplicadas">Duplicadas</button>
     </div>
     <select id="regiao" aria-label="Região">
       <option value="">Todas as regiões</option>
@@ -169,7 +170,7 @@ dialog .row button.primary{border:0;background:var(--accent);color:var(--bg)}
 const REPO = "dgasiglia7/jobjur", RAMO = "main", API = "https://api.github.com/repos/" + REPO + "/contents/docs/";
 const GRUPOS={top:"Muito compatíveis",ressalvas:"Valem olhar, com ressalvas",sp:"Boas, mas em São Paulo",outras:"Outras"};
 const ORDEM=["top","ressalvas","sp","outras"];
-const ROTULO={pendente:"Pendente",enviado:"Currículo enviado",cadastrado:"Cadastrada",descartada:"Descartada"};
+const ROTULO={pendente:"Pendente",enviado:"Currículo enviado",cadastrado:"Cadastrada",descartada:"Descartada",duplicada:"Duplicado"};
 let vagas=[],filtro="faltam",status={},painelAtualizado="";
 const $=id=>document.getElementById(id);
 const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch{}}};
@@ -221,7 +222,7 @@ function gravarStatus(id,patch,msg){
 
 // ---------- tela ----------
 function render(){
-  const abertas=vagas.filter(v=>!v.encerrada&&v.status!=="descartada");
+  const abertas=vagas.filter(v=>!v.encerrada&&v.status!=="descartada"&&v.status!=="duplicada");
   const env=vagas.filter(v=>v.status==="enviado").length, cad=vagas.filter(v=>v.status==="cadastrado").length;
   const faltam=abertas.filter(v=>v.status==="pendente").length;
   $("sTotal").textContent=abertas.length;$("sFaltam").textContent=faltam;$("sEnv").textContent=env;$("sCad").textContent=cad;
@@ -233,6 +234,7 @@ function render(){
     if(filtro==="faltam"&&(s!=="pendente"||v.encerrada))return false;
     if(filtro==="aplicadas"&&!(s==="enviado"||s==="cadastrado"))return false;
     if(filtro==="descartadas"&&s!=="descartada")return false;
+    if(filtro==="duplicadas"&&s!=="duplicada")return false;
     if(reg&&v.regiao!==reg)return false;
     if(q&&!(`${v.titulo} ${v.empresa}`.toLowerCase().includes(q)))return false;
     return true;});
