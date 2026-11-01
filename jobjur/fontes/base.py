@@ -71,11 +71,16 @@ class Cliente:
             timeout=30,
         )
 
-    def get(self, url: str, **params) -> str:
+    def resposta(self, url: str, **params) -> httpx.Response:
+        """Faz o GET respeitando a pausa, sem levantar erro para status 4xx/5xx."""
         espera = self._ultima + self.pausa - time.monotonic()
         if espera > 0:
             time.sleep(espera)
         resposta = self._http.get(url, params=params or None)
         self._ultima = time.monotonic()
+        return resposta
+
+    def get(self, url: str, **params) -> str:
+        resposta = self.resposta(url, **params)
         resposta.raise_for_status()
         return resposta.text

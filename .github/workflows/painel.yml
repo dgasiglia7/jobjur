@@ -40,6 +40,8 @@ jobs:
           printf '%s' "$PERFIL" > dados/perfil.json
       - name: Buscar vagas e acrescentar as novas ao painel
         run: python -m jobjur.buscar dados/perfil.json --sem-claude --painel docs/vagas.json
+      - name: Marcar as vagas pendentes que já foram encerradas nos sites
+        run: python -m jobjur.painel verificar
       - name: Salvar no repositório
         run: |
           git config user.name "jobjur"
