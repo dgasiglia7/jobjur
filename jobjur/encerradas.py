@@ -45,7 +45,7 @@ def gupy(html: str, hoje: date) -> bool | None:
     vaga = json.loads(achado.group(1)).get("props", {}).get("pageProps", {}).get("job")
     if not vaga:
         return True  # a Gupy manda para o login quando a vaga não existe mais
-    if vaga.get("status") and vaga["status"] != "published":
+    if vaga.get("status") and vaga["status"] != "published":  # frozen (congelada), closed, canceled...
         return True
     expira = (vaga.get("expiresAt") or "")[:10]
     return bool(expira) and expira < hoje.isoformat()

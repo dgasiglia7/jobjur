@@ -108,31 +108,39 @@ def salvar(painel: dict, caminho: Path) -> None:
 
 def verificar(caminho: Path = PAINEL_PADRAO, caminho_status: Path = STATUS_PADRAO,
               cliente: Cliente | None = None, quando: datetime | None = None, checar=encerrada) -> int:
-    """Marca como encerradas as vagas pendentes que o site já fechou. Devolve quantas foram marcadas.
+    """Confere nos sites as vagas que a pessoa ainda não marcou (sem status ou Pendente).
 
-    Só olha vagas que a pessoa ainda não marcou (sem status ou Pendente): o que ela marcou à mão,
-    inclusive "Encerrado", fica como está.
+    Vaga fechada, congelada ou vencida vira encerrada; vaga que o site reabriu volta a ficar aberta
+    (e no painel volta para Pendente). O que a pessoa marcou à mão, inclusive "Encerrado", fica como
+    está. Devolve quantas vagas mudaram.
     """
     quando = quando or datetime.now(FUSO)
     cliente = cliente or Cliente()
     painel = ler(caminho)
     status = json.loads(caminho_status.read_text(encoding="utf-8")) if caminho_status.exists() else {}
-    marcadas = 0
+    agora = quando.isoformat(timespec="minutes")
+    mudaram = 0
     for chave, vaga in painel["vagas"].items():
-        if vaga.get("encerrada") or status.get(chave, {}).get("status", "pendente") != "pendente":
+        if status.get(chave, {}).get("status", "pendente") != "pendente":
             continue
         try:
             fechada = checar(cliente, vaga["url"], quando.date())
         except Exception as erro:  # um site com página estranha não pode parar a verificação
             logging.warning("Não consegui verificar %s: %s", vaga["url"], erro)
             continue
+        if fechada is None or bool(fechada) == bool(vaga.get("encerrada")):
+            continue
+        vaga["encerrada"] = bool(fechada)
         if fechada:
-            vaga["encerrada"] = True
-            vaga["encerrada_em"] = quando.isoformat(timespec="minutes")
-            marcadas += 1
+            vaga["encerrada_em"] = agora
             logging.info("Encerrada: %s (%s)", vaga["titulo"], vaga["url"])
+        else:
+            vaga.pop("encerrada_em", None)
+            vaga["reaberta_em"] = agora
+            logging.info("Reaberta: %s (%s)", vaga["titulo"], vaga["url"])
+        mudaram += 1
     salvar(painel, caminho)
-    return marcadas
+    return mudaram
 
 
 def main() -> None:
@@ -140,11 +148,11 @@ def main() -> None:
     logging.getLogger("httpx").setLevel(logging.WARNING)
     if sys.argv[1:2] == ["verificar"]:
         parser = argparse.ArgumentParser(prog="python -m jobjur.painel verificar",
-                                         description="Marca as vagas pendentes que já foram encerradas nos sites.")
+                                         description="Marca as vagas pendentes encerradas nos sites e reabre as que voltaram.")
         parser.add_argument("--painel", type=Path, default=PAINEL_PADRAO)
         parser.add_argument("--status", type=Path, default=STATUS_PADRAO)
         args = parser.parse_args(sys.argv[2:])
-        print(f"{verificar(args.painel, args.status)} vagas marcadas como encerradas")
+        print(f"{verificar(args.painel, args.status)} vagas mudaram de situação")
         return
     parser = argparse.ArgumentParser(description="Acrescenta ao painel as vagas de uma busca.")
     parser.add_argument("resultado", type=Path, help="JSON gerado por python -m jobjur.buscar")
