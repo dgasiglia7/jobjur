@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-01T18:50-03:00",
+ "atualizado_em": "2026-11-02T17:02-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1078,7 +1078,8 @@
    "atencao": "rotina operacional de escritório; foi repostada com outro endereço.",
    "combina": "Gestão de equipe.",
    "empresa": "Cavalcante Ramos",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-02T17:02-03:00",
    "fonte": "LinkedIn",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro",
@@ -1163,7 +1164,8 @@
    "atencao": "foco em societário e M&A.",
    "combina": "Inclui governança corporativa.",
    "empresa": "Wilson Sons",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-02T17:02-03:00",
    "fonte": "Gupy",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro",
