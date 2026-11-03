@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-02T17:02-03:00",
+ "atualizado_em": "2026-11-03T11:48-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -291,6 +291,23 @@
    "titulo": "Advogado(a) Sênior de Compliance",
    "url": "https://bancdados.gupy.io/job/eyJqb2JJZCI6MTI3NjEwOTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "advogado-a-senior-direito-regulatorio-setor-de-energia-presencial-no-rio-de-jane": {
+   "adicionada_em": "2026-11-03T11:48-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Décio Freire Advogados",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "presencial",
+   "nota": 74,
+   "publicada": "2026-11-03",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) Sênior – Direito Regulatório | Setor de Energia - PRESENCIAL NO RIO DE JANEIRO",
+   "url": "https://deciofreireadv.gupy.io/job/eyJqb2JJZCI6MTI4MjUxMzEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "advogado-a-senior-juridico-corporativo-ibitu-energia": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
    "atencao": "",
@@ -313,7 +330,8 @@
    "atencao": "exige experiência no setor elétrico (ANEEL, CCEE).",
    "combina": "Contencioso estratégico judicial e administrativo.",
    "empresa": "Décio Freire",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-03T11:48-03:00",
    "fonte": "Gupy",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro",
