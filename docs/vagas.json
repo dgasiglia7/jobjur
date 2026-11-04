@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-03T21:01-03:00",
+ "atualizado_em": "2026-11-04T14:51-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -153,6 +153,23 @@
    "revisada": false,
    "titulo": "Advogado(a) | Generalista",
    "url": "https://www.empregos.com.br/vaga/11816715/advogadoa-generalista-em-rio-de-janeiro-rj"
+  },
+  "advogado-a-ii-voltz-a-fintech-da-energisa": {
+   "adicionada_em": "2026-11-04T14:51-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Voltz, a Fintech da Energisa",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "híbrido",
+   "nota": 84,
+   "publicada": "2026-11-04",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) II",
+   "url": "https://voltz.gupy.io/job/eyJqb2JJZCI6MTI4MzM4MTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-a-lider-controller-juridico-senior-bruno-durao": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -445,6 +462,23 @@
    "titulo": "Advogado Cível Pleno",
    "url": "https://www.infojobs.com.br/vaga-de-advogado-civel-pleno-em-rio-janeiro__12043606.aspx"
   },
+  "advogado-civel-producao-de-pecas-cavalcante-ramos-advogados": {
+   "adicionada_em": "2026-11-04T14:51-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Cavalcante Ramos Advogados",
+   "encerrada": false,
+   "fonte": "Empregos.com.br",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro, RJ",
+   "modalidade": "presencial",
+   "nota": 72,
+   "publicada": "2026-11-03",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado Cível - Produção de Peças",
+   "url": "https://www.empregos.com.br/vaga/11984755/advogado-civel-producao-de-pecas-em-rio-de-janeiro-rj"
+  },
   "advogado-civel-senior-empresa-confidencial": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -535,7 +569,8 @@
    "atencao": "inglês provável; aberta há quase dois meses.",
    "combina": "Contratos complexos com operadoras e fornecedores, governança contratual e negociação.",
    "empresa": "DaVita",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-04T14:51-03:00",
    "fonte": "Gupy",
    "grupo": "top",
    "local": "Rio de Janeiro",
