@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-04T23:43-03:00",
+ "atualizado_em": "2026-11-05T14:55-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -193,7 +193,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "MOEMA MORCILLO DA COSTA SOCIEDADE INDIVIDUAL DE ADVOCACIA",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-05T14:55-03:00",
    "fonte": "Catho",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro",
@@ -261,7 +262,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Tocantins Advogados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-05T14:55-03:00",
    "fonte": "LinkedIn",
    "grupo": "top",
    "local": "Rio de Janeiro, Brasil",
@@ -803,6 +805,23 @@
    "titulo": "Advogado Societário e Governança Pleno",
    "url": "https://www.vagas.com.br/vagas/v2841703/advogado-societario-e-governanca-pleno"
   },
+  "advogado-sr-maxsearch": {
+   "adicionada_em": "2026-11-05T14:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "MaxSearch",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "híbrido",
+   "nota": 67,
+   "publicada": "2026-11-05",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Advogado Sr",
+   "url": "https://maxsearch.gupy.io/job/eyJqb2JJZCI6MTI4Mzk5NTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "analista-compliance-pleno-pld-ft-caixa-vida-e-previdencia": {
    "adicionada_em": "2026-10-30T20:05:00-03:00",
    "atencao": "nível pleno.",
@@ -819,6 +838,23 @@
    "revisada": true,
    "titulo": "Analista Compliance Pleno (PLD/FT)",
    "url": "https://caixavidaeprevidencia.gupy.io/job/eyJqb2JJZCI6MTI1MzIzNTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "analista-de-compliance-pleno-mag-seguros": {
+   "adicionada_em": "2026-11-05T14:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Mag seguros",
+   "encerrada": false,
+   "fonte": "Empregos.com.br",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro, RJ",
+   "modalidade": "presencial",
+   "nota": 72,
+   "publicada": "2026-11-05",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Analista de Compliance Pleno",
+   "url": "https://www.empregos.com.br/vaga/11996561/analista-de-compliance-pleno-em-rio-de-janeiro-rj"
   },
   "analista-de-compliance-senior-asset-management-fii-fidc-e-fip-hsi": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1023,6 +1059,23 @@
    "revisada": true,
    "titulo": "Analista Jurídico Sênior",
    "url": "https://to.indeed.com/aaklhmqqypln"
+  },
+  "analista-senior-de-compliance-foco-dtvm-empresa-confidencial": {
+   "adicionada_em": "2026-11-05T14:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Empresa Confidencial",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "presencial",
+   "nota": 67,
+   "publicada": "2026-11-05",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Analista Sênior de Compliance (Foco DTVM)",
+   "url": "https://bancdados.gupy.io/job/eyJqb2JJZCI6MTI4NDIyNDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "analista-senior-de-compliance-robert-half-cliente-industrial": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -1365,6 +1418,23 @@
    "titulo": "Especialista Jurídico - Contratos, Imobiliário e Trabalhista Consultivo",
    "url": "https://to.indeed.com/aa7dnlzpl8cw"
   },
+  "especialista-juridico-contratos-swap": {
+   "adicionada_em": "2026-11-05T14:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Swap",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "híbrido",
+   "nota": 67,
+   "publicada": "2026-11-05",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Especialista Jurídico - Contratos",
+   "url": "https://swapfinancial.gupy.io/job/eyJqb2JJZCI6MTI4MTE4MDYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "especialista-juridico-societario-wilson-sons": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
    "atencao": "foco em societário e M&A.",
@@ -1552,6 +1622,23 @@
    "revisada": true,
    "titulo": "PESSOA COORDENADORA DE COMPLIANCE",
    "url": "https://yduqs.gupy.io/job/eyJqb2JJZCI6MTI4MTQ0NDAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "vaga-advogado-a-administrativo-a-consultivo-rio-de-janeiro-rj-decio-freire-advog": {
+   "adicionada_em": "2026-11-05T14:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Décio Freire Advogados",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "presencial",
+   "nota": 78,
+   "publicada": "2026-11-05",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Vaga – Advogado(a) Administrativo(a) – Consultivo | Rio de Janeiro/RJ",
+   "url": "https://deciofreireadv.gupy.io/job/eyJqb2JJZCI6MTI4Mzk5NTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "vaga-para-efetivo-advogado-interno-generalista-consultivo-secondment-e-commerce": {
    "adicionada_em": "2026-10-31T05:22-03:00",
