@@ -70,6 +70,7 @@ input[type=search]{flex:1;min-width:160px}
 .t{font-weight:600;font-size:16px;margin:0}
 .t a{color:inherit;text-decoration:none}
 .t a:hover{text-decoration:underline}
+.meta .sal{color:var(--text);font-weight:600}
 .meta{color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:4px 10px}
 .badge{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:99px;background:var(--accent-soft);color:var(--accent);vertical-align:2px;margin-left:6px}
 .badge.closed{background:transparent;color:var(--closed);border:1px solid currentColor}
@@ -150,6 +151,15 @@ dialog .row button.primary{border:0;background:var(--accent);color:var(--bg)}
       <option value="rj">Rio de Janeiro e remoto</option>
       <option value="sp">São Paulo</option>
       <option value="outra">Outros lugares</option>
+    </select>
+    <select id="salario" aria-label="Salário">
+      <option value="">Qualquer salário</option>
+      <option value="1">Só com salário informado</option>
+      <option value="5000">Salário a partir de R$ 5.000</option>
+      <option value="8000">Salário a partir de R$ 8.000</option>
+      <option value="10000">Salário a partir de R$ 10.000</option>
+      <option value="15000">Salário a partir de R$ 15.000</option>
+      <option value="20000">Salário a partir de R$ 20.000</option>
     </select>
     <select id="ordem" aria-label="Ordenar">
       <option value="nota">Maior nota</option>
@@ -247,7 +257,7 @@ function render(){
   $("sTotal").textContent=abertas.length;$("sFaltam").textContent=faltam;$("sEnv").textContent=env;$("sCad").textContent=cad;
   $("prog").style.width=Math.round(100*(abertas.length-faltam)/(abertas.length||1))+"%";
   $("sub").textContent=vagas.length?`${vagas.length} vagas no painel · última busca em ${fmt(painelAtualizado)} (horário de Brasília)`:"Nenhuma vaga ainda";
-  const q=$("q").value.trim().toLowerCase(), reg=$("regiao").value;
+  const q=$("q").value.trim().toLowerCase(), reg=$("regiao").value, sal=Number($("salario").value)||0;
   let lista=vagas.filter(v=>{
     const s=efetivo(v);
     if(filtro==="faltam"&&s!=="pendente")return false;
@@ -257,6 +267,7 @@ function render(){
     if(filtro==="encerradas"&&s!=="encerrada")return false;
     if(filtro==="favoritas"&&!v.favorito)return false;
     if(reg&&v.regiao!==reg)return false;
+    if(sal&&!(v.salario_valor>=sal))return false; // vagas sem salário informado saem quando há filtro
     if(q&&!(`${v.titulo} ${v.empresa}`.toLowerCase().includes(q)))return false;
     return true;});
   const porNota=(a,b)=>(b.nota||0)-(a.nota||0);
@@ -278,7 +289,7 @@ function render(){
         <button class="fav${v.favorito?" on":""}" aria-pressed="${!!v.favorito}" title="${v.favorito?"Tirar das favoritas":"Salvar nas favoritas"}" aria-label="${v.favorito?"Tirar das favoritas":"Salvar nas favoritas"}" ${pode?"":"disabled"}>${v.favorito?"★":"☆"}</button>
         <div class="nota">${esc(v.nota??"–")}<small>nota</small></div>
         <h2 class="t"><a href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener">${esc(v.titulo)}</a>${nova?'<span class="badge">nova</span>':""}${s==="encerrada"&&(v.status||"pendente")!=="encerrada"?'<span class="badge closed">encerrada no site</span>':""}${v.revisada===false?'<span class="badge auto" title="Encontrada pela busca automática, ainda sem revisão">automática</span>':""}</h2>
-        <div class="meta"><span>${esc(v.empresa)}</span><span>${esc(v.local)}</span>${v.modalidade?`<span>${esc(v.modalidade)}</span>`:""}${v.publicada?`<span>publicada em ${dia(v.publicada)}</span>`:""}<span>via ${esc(v.fonte)}</span></div>
+        <div class="meta"><span>${esc(v.empresa)}</span><span>${esc(v.local)}</span>${v.modalidade?`<span>${esc(v.modalidade)}</span>`:""}${v.publicada?`<span>publicada em ${dia(v.publicada)}</span>`:""}${v.salario?`<span class="sal">${esc(v.salario)}</span>`:""}<span>via ${esc(v.fonte)}</span></div>
         ${v.combina||v.atencao?`<p class="resumo">${v.combina?esc(v.combina):""}${v.atencao?` <em>Atenção: ${esc(v.atencao)}</em>`:""}</p>`:""}
         <div class="actions">
           <div class="st" role="group" aria-label="Situação">${Object.keys(ROTULO).map(k=>`<button data-s="${k}" class="${s===k?"on":""}" title="${s===k&&k!=="pendente"?"Clique de novo para voltar a Pendente":""}" ${pode?"":"disabled"}>${ROTULO[k]}</button>`).join("")}</div>
@@ -346,6 +357,8 @@ $("list").addEventListener("click",e=>{const b=e.target.closest(".notes .salvar"
 $("tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;filtro=b.dataset.f;
   [...$("tabs").children].forEach(x=>x.classList.toggle("on",x===b));render();});
 $("regiao").addEventListener("change",render);
+$("salario").value=store.get("jobjur_salario")||"";if($("salario").selectedIndex<0)$("salario").value="";
+$("salario").addEventListener("change",()=>{store.set("jobjur_salario",$("salario").value||null);render();});
 $("ordem").value=store.get("jobjur_ordem")==="data"?"data":"nota";
 $("ordem").addEventListener("change",()=>{store.set("jobjur_ordem",$("ordem").value);render();});$("q").addEventListener("input",render);
 $("conta").addEventListener("click",e=>{if(e.target.id==="sair")sair();if(e.target.id==="entrar")$("dlg").showModal();});

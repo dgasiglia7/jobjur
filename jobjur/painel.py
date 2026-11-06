@@ -12,6 +12,7 @@ uso: python -m jobjur.painel dados/vagas-AAAA-MM-DD-HHhMM.json [--painel docs/va
 import argparse
 import json
 import logging
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -43,6 +44,30 @@ def regiao(local: str, modalidade: str = "") -> str:
     return "outra"
 
 
+VALOR = re.compile(r"R\$\s*(\d{1,3}(?:\.\d{3})+|\d+)(?:,\d{1,2})?\s*(mil|k)?\b", re.I)
+
+
+def valor_salario(texto: str) -> int | None:
+    """Maior valor em reais citado no texto ("R$ 5.000,00 a R$ 8.000,00" -> 8000); None se não houver."""
+    valores = []
+    for numero, mil in VALOR.findall(texto or ""):
+        valor = int(numero.replace(".", ""))
+        if mil:
+            valor *= 1000
+        if valor >= 500:  # ignora vale-refeição, bônus diários e afins
+            valores.append(valor)
+    return max(valores) if valores else None
+
+
+def salario(vaga: dict) -> dict:
+    """Campos de salário do painel: o texto do site e o valor usado no filtro."""
+    texto = vaga.get("salario") or ""
+    valor = valor_salario(texto) or valor_salario(vaga.get("titulo", ""))
+    if valor and not valor_salario(texto):
+        texto = f"R$ {valor:,.0f}".replace(",", ".")
+    return {"salario": texto, "salario_valor": valor} if (texto or valor) else {}
+
+
 def grupo(nota: int, reg: str) -> str:
     if reg == "rj":
         return "top" if nota >= 75 else "ressalvas"
@@ -70,6 +95,7 @@ def entrada(vaga: dict, quando: datetime) -> dict:
         "adicionada_em": quando.isoformat(timespec="minutes"),
         "encerrada": False,
         "revisada": False,
+        **salario(vaga),
     }
 
 
@@ -85,16 +111,18 @@ def atualizar(vagas: list[dict], caminho: Path = PAINEL_PADRAO, minimo: int = NO
     quando = quando or datetime.now(FUSO)
     painel = ler(caminho)
     existentes = painel["vagas"]
-    urls = {v["url"] for v in existentes.values()}
     novas = 0
+    por_url = {v["url"]: v for v in existentes.values()}
     for vaga in vagas:
-        if vaga.get("extras", {}).get("nota", 0) < minimo or vaga["url"] in urls:
-            continue
         chave = id_vaga(vaga["titulo"], vaga.get("empresa", ""))
-        if chave in existentes:
+        atual = por_url.get(vaga["url"]) or existentes.get(chave)
+        if atual is not None:
+            if "salario" not in atual:  # completa o salário de vagas antigas; o resto fica como está
+                atual.update(salario(vaga))
             continue
-        existentes[chave] = entrada(vaga, quando)
-        urls.add(vaga["url"])
+        if vaga.get("extras", {}).get("nota", 0) < minimo:
+            continue
+        existentes[chave] = por_url[vaga["url"]] = entrada(vaga, quando)
         novas += 1
     painel["atualizado_em"] = quando.isoformat(timespec="minutes")
     caminho.parent.mkdir(parents=True, exist_ok=True)
