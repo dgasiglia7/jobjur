@@ -5,9 +5,11 @@ os detalhes ficam na página da vaga. Indeed, Glassdoor e Jusbrasil ficaram de f
 automatizado (verificação anti-robô).
 """
 
-from . import bne, catho, empregos_com, gupy, infojobs, linkedin, trabalha_brasil, vagas_com
+from . import (bne, catho, empregare, empregos_com, empregos_rj, gupy, infojobs, linkedin, riovagas, talent,
+               trabalha_brasil, vagas_com)
 from .base import Cliente, Local, Vaga
 
-FONTES = {m.NOME: m for m in (gupy, linkedin, vagas_com, catho, infojobs, empregos_com, bne, trabalha_brasil)}
+FONTES = {m.NOME: m for m in (gupy, linkedin, vagas_com, catho, infojobs, empregos_com, bne, trabalha_brasil,
+                                 empregare, talent, riovagas, empregos_rj)}
 
 __all__ = ["FONTES", "Cliente", "Local", "Vaga"]
