@@ -82,3 +82,30 @@ def test_verificar_reabre_vaga_que_voltou(tmp_path):
     assert painel.verificar(arq, st, cliente=object(), checar=checar) == 1
     a = json.loads(arq.read_text())["vagas"][painel.id_vaga("A", "ACME")]
     assert a["encerrada"] is False and "encerrada_em" not in a and "reaberta_em" in a
+
+
+def test_valor_salario():
+    assert painel.valor_salario("R$ 5.001,00 a R$ 6.000,00") == 6000
+    assert painel.valor_salario("Até R$ 12.500") == 12500
+    assert painel.valor_salario("R$ 15 mil") == 15000
+    assert painel.valor_salario("A combinar") is None
+    assert painel.valor_salario("VR de R$ 45,00 por dia") is None
+
+
+def test_salario_entra_no_painel_e_completa_vagas_antigas(tmp_path):
+    arq = tmp_path / "vagas.json"
+    com_salario = dict(vaga("Advogado Pleno", "https://a", 80), salario="R$ 8.000,00 a R$ 10.000,00")
+    pelo_titulo = vaga("Advogado – Escritório – R$ 3.800,00 – Centro RJ", "https://b", 80)
+    painel.atualizar([com_salario, pelo_titulo, vaga("Gerente Jurídico", "https://c", 80)], arq, 65)
+    dados = json.loads(arq.read_text())["vagas"]
+    assert dados[painel.id_vaga("Advogado Pleno", "ACME")]["salario_valor"] == 10000
+    assert dados[painel.id_vaga(pelo_titulo["titulo"], "ACME")]["salario"] == "R$ 3.800"
+    gerente = painel.id_vaga("Gerente Jurídico", "ACME")
+    assert "salario" not in dados[gerente]
+
+    # a mesma vaga aparece de novo, agora com salário: só o salário é acrescentado
+    dados[gerente]["atencao"] = "nota manual"
+    arq.write_text(json.dumps({"vagas": dados}))
+    painel.atualizar([dict(vaga("Gerente Jurídico", "https://c", 80), salario="R$ 20.000,00")], arq, 65)
+    g = json.loads(arq.read_text())["vagas"][gerente]
+    assert g["salario_valor"] == 20000 and g["atencao"] == "nota manual"
