@@ -1,0 +1,13 @@
+name: Sondagem de fontes (temporário)
+on:
+  push:
+    branches: [claude/sondagem-fontes]
+jobs:
+  sondar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install httpx beautifulsoup4
+      - run: python scripts/sondar.py
