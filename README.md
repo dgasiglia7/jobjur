@@ -36,9 +36,14 @@ Opções úteis: `--termos "advogado,compliance"`, `--fontes "Gupy,LinkedIn"`, `
 | Empregos.com.br | ✅ coleta | Título, empresa, cidade, data e descrição |
 | BNE | ✅ coleta | Sem data na listagem; às vezes recusa buscas seguidas (403) |
 | Trabalha Brasil | ✅ coleta | Títulos genéricos ("Advogado"), sem descrição na listagem |
+| Empregare | ✅ coleta | Portal e ATS de várias empresas; busca no Brasil todo (o site não filtra cidade) |
+| Talent.com | ✅ coleta | Agregador que reúne anúncios de outros sites e páginas de carreira; a data é a da última atualização |
+| RIOVAGAS | ✅ coleta | Blog de vagas do Rio (lido pela API do WordPress, só anúncios dos últimos 30 dias); muitas vagas de nível inicial |
 | Indeed | ❌ bloqueado | Verificação anti-robô exige login; há conector oficial do Indeed para usar nas conversas com o Claude |
 | Glassdoor | ❌ bloqueado | Responde 403 |
-| Jusbrasil | ❌ bloqueado | Responde 403 |
+| Jusbrasil | ❌ sem vagas | A página de vagas agora leva para notícias |
+| Jooble, Careerjet, SimplyHired, Adzuna, Jobbol, WhatJobs, Netvagas | ❌ bloqueado | Verificação anti-robô (testado em 06/11/2026) |
+| Sólides Vagas, emprego.net | ❌ fora | A lista de vagas só carrega no navegador |
 
 
 ## Ranking

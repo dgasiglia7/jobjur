@@ -3,7 +3,10 @@ from pathlib import Path
 
 import pytest
 
-from jobjur.fontes import FONTES, bne, catho, empregos_com, gupy, infojobs, linkedin, trabalha_brasil, vagas_com
+import json
+
+from jobjur.fontes import (FONTES, bne, catho, empregare, empregos_com, gupy, infojobs, linkedin, talent, trabalha_brasil,
+                           vagas_com, wordpress)
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -12,7 +15,8 @@ def ler(nome: str) -> str:
     return (FIXTURES / f"{nome}.html").read_text(encoding="utf-8")
 
 
-@pytest.mark.parametrize("modulo", [gupy, linkedin, vagas_com, catho, infojobs, empregos_com, bne, trabalha_brasil])
+@pytest.mark.parametrize("modulo", [gupy, linkedin, vagas_com, catho, infojobs, empregos_com, bne, trabalha_brasil,
+                                    empregare, talent])
 def test_parse_extrai_campos_basicos(modulo):
     vagas = modulo.parse(ler(modulo.__name__.rsplit(".", 1)[-1]))
     assert len(vagas) == 2
@@ -66,7 +70,7 @@ def test_infojobs_detalhes():
 
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
-                           "Trabalha Brasil"}
+                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS"}
 
 
 def test_empregos_com():
@@ -98,3 +102,35 @@ def test_vagas_com_datas_relativas():
     assert vagas_com._data("Ontem", hoje) == "2026-10-29"
     assert vagas_com._data("Há 3 dias", hoje) == "2026-10-27"
     assert vagas_com._data("30/09/2026", hoje) == "2026-09-30"
+
+
+def test_empregare():
+    vaga = empregare.parse(ler("empregare"))[1]
+    assert vaga.empresa == "Rêve"
+    assert vaga.local == "Águas Claras, Brasília, DF"
+    assert vaga.url == "https://www.empregare.com/pt-br/vaga-advogado-a-corporativo_185359"
+
+
+def test_talent():
+    vaga = talent.parse(ler("talent"))[0]
+    assert vaga.titulo == "Advogado(a) Associado(a) - RJ"
+    assert vaga.empresa == "Defesa Justa Estratégica ltda"
+    assert vaga.local == "Rio de Janeiro, Rio de Janeiro"
+    assert vaga.url == "https://br.talent.com/view?id=639684882392418625"
+    assert not vaga.descricao.endswith("Mostre mais")
+
+
+def test_wordpress_ignora_posts_antigos():
+    posts = json.loads((FIXTURES / "riovagas.json").read_text(encoding="utf-8"))
+    vagas = wordpress.parse(posts, "RIOVAGAS", hoje=date(2026, 11, 6))
+    assert [v.publicada for v in vagas] == ["2026-11-05", "2026-10-29"]
+    assert vagas[0].titulo.startswith("Advogado Previdenciario – Escritório")
+    assert vagas[0].local == "Rio de Janeiro, RJ"
+
+
+def test_fontes_que_ignoram_a_cidade_nao_repetem_a_busca():
+    from jobjur.fontes import Local, riovagas
+    rio, sp = Local("Rio de Janeiro", "RJ"), Local("São Paulo", "SP")
+    assert empregare.buscar(None, "advogado", rio) == []
+    assert riovagas.buscar(None, "advogado", sp) == []
+    assert riovagas.buscar(None, "advogado", None) == []
