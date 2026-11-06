@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-05T14:55-03:00",
+ "atualizado_em": "2026-11-05T23:53-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -349,7 +349,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Décio Freire Advogados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-05T23:53-03:00",
    "fonte": "Gupy",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro, Rio de Janeiro",
@@ -571,7 +572,8 @@
    "atencao": "escritório, pede inglês e presencial.",
    "combina": "Contencioso estratégico cível e de direito público, contato direto com sócios.",
    "empresa": "FTR Advogados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-05T23:53-03:00",
    "fonte": "LinkedIn",
    "grupo": "top",
    "local": "Rio de Janeiro (Centro)",
@@ -582,6 +584,23 @@
    "revisada": true,
    "titulo": "Advogado, Contencioso Estratégico Sênior e Pleno",
    "url": "https://br.linkedin.com/jobs/view/advogado-contencioso-estrat%C3%A9gico-s%C3%AAnior-e-pleno-at-ftr-fontes-tarso-ribeiro-advogados-4482571417"
+  },
+  "advogado-contencioso-estrategico-senior-e-pleno-ftr-fontes-tarso-ribeiro-advogad": {
+   "adicionada_em": "2026-11-05T23:53-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "FTR | Fontes Tarso Ribeiro Advogados",
+   "encerrada": false,
+   "fonte": "LinkedIn",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Brasil",
+   "modalidade": "",
+   "nota": 99,
+   "publicada": "2026-11-05",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado | Contencioso Estratégico - Sênior e Pleno",
+   "url": "https://br.linkedin.com/jobs/view/advogado-contencioso-estrat%C3%A9gico-s%C3%AAnior-e-pleno-at-ftr-fontes-tarso-ribeiro-advogados-4485862457"
   },
   "advogado-especialista-contratos-davita": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -617,6 +636,23 @@
    "revisada": false,
    "titulo": "Advogado - Especialista em Direito Empresarial",
    "url": "https://www.empregos.com.br/vaga/11976113/advogado-especialista-em-direito-empresarial-em-curitiba-pr"
+  },
+  "advogado-especialista-em-seguros-gestao-de-riscos-sucessao-patrimonial-aline-nas": {
+   "adicionada_em": "2026-11-05T23:53-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Aline Nascimento HR Solutions",
+   "encerrada": false,
+   "fonte": "LinkedIn",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Brasil",
+   "modalidade": "",
+   "nota": 91,
+   "publicada": "2026-11-05",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado Especialista em Seguros, Gestão de Riscos & Sucessão Patrimonial",
+   "url": "https://br.linkedin.com/jobs/view/advogado-especialista-em-seguros-gest%C3%A3o-de-riscos-sucess%C3%A3o-patrimonial-at-aline-nascimento-hr-solutions-4485862002"
   },
   "advogado-generalista-potencial-rh": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -668,6 +704,23 @@
    "revisada": false,
    "titulo": "Advogado Pleno",
    "url": "https://riopar.gupy.io/job/eyJqb2JJZCI6MTI2NzYzNTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "advogado-pleno-sanchez-e-sanchez-sociedade-de-advogados": {
+   "adicionada_em": "2026-11-05T23:53-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Sanchez e Sanchez Sociedade de Advogados",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "ressalvas",
+   "local": "",
+   "modalidade": "remoto",
+   "nota": 65,
+   "publicada": "2026-11-05",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado Pleno",
+   "url": "https://sanchezadv.gupy.io/job/eyJqb2JJZCI6MTI4NDE1MDIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-senior": {
    "adicionada_em": "2026-10-31T05:22-03:00",
