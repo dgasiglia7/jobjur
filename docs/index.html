@@ -53,6 +53,13 @@ select,input[type=search],textarea{font:inherit;font-size:14px;color:var(--text)
 input[type=search]{flex:1;min-width:160px}
 .group-title{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 8px;font-weight:600}
 .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--pend);border-radius:12px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);display:grid;grid-template-columns:52px 1fr;gap:4px 14px}
+.card{position:relative}
+.fav{position:absolute;top:8px;right:8px;width:36px;height:36px;border:0;border-radius:8px;background:transparent;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:0}
+.fav:hover:not(:disabled){background:var(--accent-soft)}
+.fav.on{color:#e0a800}
+.fav:disabled{cursor:default}
+.fav:disabled:not(.on){display:none}
+.card .t{padding-right:34px}
 .card.enviado{border-left-color:var(--sent)}
 .card.cadastrado{border-left-color:var(--reg)}
 .card.descartada,.card.duplicada{border-left-color:var(--disc);opacity:.7}
@@ -134,6 +141,7 @@ dialog .row button.primary{border:0;background:var(--accent);color:var(--bg)}
       <button data-f="descartadas">Descartadas</button>
       <button data-f="duplicadas">Duplicadas</button>
       <button data-f="encerradas">Encerradas</button>
+      <button data-f="favoritas">★ Favoritas</button>
     </div>
     <select id="regiao" aria-label="Região">
       <option value="">Todas as regiões</option>
@@ -216,7 +224,7 @@ function gravarStatus(id,patch,msg){
         dados[id]={...(dados[id]||{}),...patch,...(patch.status?{atualizado_em:new Date().toISOString()}:{})};
         const v=vagas.find(x=>x.id===id);
         await gh("status.json",{method:"PUT",body:JSON.stringify({branch:RAMO,sha:atual.sha,
-          message:`Painel: ${v?v.titulo:id} (${patch.status?ROTULO[patch.status]:"anotação"})`,
+          message:`Painel: ${v?v.titulo:id} (${patch.status?ROTULO[patch.status]:"favorito" in patch?(patch.favorito?"favorita":"tirada das favoritas"):"anotação"})`,
           content:b64encode(JSON.stringify(dados,null,1)+"\n")})});
         status=dados;if(msg)toast(msg);return;
       }catch(e){
@@ -245,6 +253,7 @@ function render(){
     if(filtro==="descartadas"&&s!=="descartada")return false;
     if(filtro==="duplicadas"&&s!=="duplicada")return false;
     if(filtro==="encerradas"&&s!=="encerrada")return false;
+    if(filtro==="favoritas"&&!v.favorito)return false;
     if(reg&&v.regiao!==reg)return false;
     if(q&&!(`${v.titulo} ${v.empresa}`.toLowerCase().includes(q)))return false;
     return true;});
@@ -253,7 +262,7 @@ function render(){
   lista.sort($("ordem").value==="data"?(a,b)=>(b.publicada||"").localeCompare(a.publicada||"")||porNota(a,b):porNota);
   const el=$("list");
   if(!vagas.length){el.innerHTML='<div class="empty">O painel ainda está vazio. As vagas aparecem aqui depois da primeira busca.</div>';return;}
-  if(!lista.length){el.innerHTML=`<div class="empty">${filtro==="faltam"?"Nada pendente com esses filtros. 🎉":"Nenhuma vaga com esses filtros."}</div>`;return;}
+  if(!lista.length){el.innerHTML=`<div class="empty">${filtro==="faltam"?"Nada pendente com esses filtros. 🎉":filtro==="favoritas"?"Nenhuma vaga favorita ainda. Clique na estrela de uma vaga para salvá-la aqui.":"Nenhuma vaga com esses filtros."}</div>`;return;}
   const recente=Date.now()-3*864e5, pode=!!token;
   let html="";
   for(const g of ORDEM){
@@ -264,6 +273,7 @@ function render(){
       const s=efetivo(v);
       const nova=v.adicionada_em&&new Date(v.adicionada_em).getTime()>recente&&s==="pendente";
       html+=`<article class="card ${esc(s)}" data-id="${esc(v.id)}">
+        <button class="fav${v.favorito?" on":""}" aria-pressed="${!!v.favorito}" title="${v.favorito?"Tirar das favoritas":"Salvar nas favoritas"}" aria-label="${v.favorito?"Tirar das favoritas":"Salvar nas favoritas"}" ${pode?"":"disabled"}>${v.favorito?"★":"☆"}</button>
         <div class="nota">${esc(v.nota??"–")}<small>nota</small></div>
         <h2 class="t"><a href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener">${esc(v.titulo)}</a>${nova?'<span class="badge">nova</span>':""}${s==="encerrada"&&(v.status||"pendente")!=="encerrada"?'<span class="badge closed">encerrada no site</span>':""}${v.revisada===false?'<span class="badge auto" title="Encontrada pela busca automática, ainda sem revisão">automática</span>':""}</h2>
         <div class="meta"><span>${esc(v.empresa)}</span><span>${esc(v.local)}</span>${v.modalidade?`<span>${esc(v.modalidade)}</span>`:""}${v.publicada?`<span>publicada em ${dia(v.publicada)}</span>`:""}<span>via ${esc(v.fonte)}</span></div>
@@ -301,6 +311,13 @@ async function carregar(silencioso){
   }
 }
 
+$("list").addEventListener("click",e=>{
+  const f=e.target.closest(".fav");if(!f||f.disabled)return;
+  const id=f.closest(".card").dataset.id,v=vagas.find(x=>x.id===id);if(!v)return;
+  // a estrela não mexe no status da vaga
+  v.favorito=!v.favorito;render();
+  gravarStatus(id,{favorito:v.favorito},v.favorito?"Salva nas favoritas":"Tirada das favoritas");
+});
 $("list").addEventListener("click",e=>{
   const b=e.target.closest(".st button");if(!b||b.disabled)return;
   const id=b.closest(".card").dataset.id,clicado=b.dataset.s,v=vagas.find(x=>x.id===id);
