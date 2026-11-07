@@ -80,6 +80,16 @@ class Cliente:
         self._ultima = time.monotonic()
         return resposta
 
+    def json(self, url: str, metodo: str = "GET", corpo: dict | None = None, cabecalhos: dict | None = None):
+        """GET ou POST que devolve o JSON da resposta (para APIs de páginas de carreira)."""
+        espera = self._ultima + self.pausa - time.monotonic()
+        if espera > 0:
+            time.sleep(espera)
+        resposta = self._http.request(metodo, url, json=corpo, headers=cabecalhos)
+        self._ultima = time.monotonic()
+        resposta.raise_for_status()
+        return resposta.json()
+
     def get(self, url: str, **params) -> str:
         resposta = self.resposta(url, **params)
         resposta.raise_for_status()

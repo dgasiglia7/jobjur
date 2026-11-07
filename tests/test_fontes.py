@@ -70,7 +70,7 @@ def test_infojobs_detalhes():
 
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
-                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS"}
+                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras"}
 
 
 def test_empregos_com():
@@ -134,3 +134,47 @@ def test_fontes_que_ignoram_a_cidade_nao_repetem_a_busca():
     assert empregare.buscar(None, "advogado", rio) == []
     assert riovagas.buscar(None, "advogado", sp) == []
     assert riovagas.buscar(None, "advogado", None) == []
+
+
+def test_seguradoras_gupy_filtra_juridico():
+    from jobjur.fontes import seguradoras
+    dados = {"props": {"pageProps": {"jobs": [
+        {"id": 1, "title": "Advogado(a) Operacional Pleno (Contencioso)", "department": "Jurídico",
+         "workplace": {"address": {"city": "São Paulo", "stateShortName": "SP"}}, "workplaceType": "hybrid"},
+        {"id": 2, "title": "Analista de Governança Sênior", "department": "Jurídico", "workplace": {}},
+        {"id": 3, "title": "Analista Contábil", "department": "Finanças", "workplace": {}},
+    ]}}}
+    html = f'<script id="__NEXT_DATA__" type="application/json">{json.dumps(dados)}</script>'
+    vagas = seguradoras.parse_gupy(html, "tokiomarine")
+    assert [v.url for v in vagas] == ["https://tokiomarine.gupy.io/jobs/1", "https://tokiomarine.gupy.io/jobs/2"]
+    assert vagas[0].empresa == "Tokio Marine" and vagas[0].local == "São Paulo, SP"
+    assert vagas[0].modalidade == "híbrido"
+
+
+def test_seguradoras_zurich_workday_inhire():
+    from jobjur.fontes import seguradoras
+    html = ('<table><tr class="data-row"><td><a class="jobTitle-link" href="/job/Sao-Paulo-ADVOG/1/">ADVOG '
+            'CORPORATIVO II</a></td><td><span class="jobLocation">São Paulo, BR</span></td></tr>'
+            '<tr class="data-row"><td><a class="jobTitle-link" href="/job/x/2/">Atuário</a></td></tr></table>')
+    [z] = seguradoras.parse_zurich(html)
+    assert z.url == "https://www.careers.zurich.com/job/Sao-Paulo-ADVOG/1/" and z.local == "São Paulo, BR"
+    wd = {"jobPostings": [{"title": "ANALISTA PRIVACY SR", "externalPath": "/job/Rio-de-Janeiro-Brazil/X_R-1",
+                           "locationsText": "Rio de Janeiro, Brazil"},
+                          {"title": "Legal Counsel", "externalPath": "/job/Newark-NJ/Y_R-2", "locationsText": "Newark"}]}
+    [p] = seguradoras.parse_workday(wd, seguradoras.PRUDENTIAL, "Careers", "Prudential do Brasil")
+    assert p.url.endswith("/Careers/job/Rio-de-Janeiro-Brazil/X_R-1")
+    ih = {"jobsPage": [{"displayName": "Advogado Sênior", "jobId": "abc", "location": "Rio de Janeiro, RJ, BR",
+                        "workplaceType": "On-site"}, {"displayName": "Recepcionista", "jobId": "d"}]}
+    [i] = seguradoras.parse_inhire(ih, "icatu", "Icatu Seguros")
+    assert i.url == "https://icatu.inhire.app/vagas/abc" and i.local == "Rio de Janeiro, RJ"
+    assert i.modalidade == "presencial"
+
+
+def test_seguradoras_le_paginas_uma_vez(monkeypatch):
+    from jobjur.fontes import seguradoras
+    chamadas = []
+    monkeypatch.setattr(seguradoras, "coletar", lambda cliente: chamadas.append(1) or [])
+    cliente = seguradoras.Cliente(pausa=0)
+    seguradoras.buscar(cliente, "advogado")
+    seguradoras.buscar(cliente, "compliance")
+    assert chamadas == [1]
