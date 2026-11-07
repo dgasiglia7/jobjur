@@ -39,6 +39,7 @@ Opções úteis: `--termos "advogado,compliance"`, `--fontes "Gupy,LinkedIn"`, `
 | Empregare | ✅ coleta | Portal e ATS de várias empresas; busca no Brasil todo (o site não filtra cidade) |
 | Talent.com | ✅ coleta | Agregador que reúne anúncios de outros sites e páginas de carreira; a data é a da última atualização |
 | RIOVAGAS | ✅ coleta | Blog de vagas do Rio (lido pela API do WordPress, só anúncios dos últimos 30 dias); muitas vagas de nível inicial |
+| Seguradoras | ✅ coleta | Páginas de carreira de Tokio Marine, Porto, Grupo MAG, Caixa Vida e Previdência, Brasilprev, Brasilseg, Itaú, Zurich, Prudential e Icatu; só vagas da área jurídica. Bradesco, Mapfre, IRB, Allianz, SulAmérica, Sompo e AXA não puderam ser lidas |
 | Indeed | ❌ bloqueado | Verificação anti-robô exige login; há conector oficial do Indeed para usar nas conversas com o Claude |
 | Glassdoor | ❌ bloqueado | Responde 403 |
 | Jusbrasil | ❌ sem vagas | A página de vagas agora leva para notícias |
