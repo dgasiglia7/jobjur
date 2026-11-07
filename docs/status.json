@@ -270,5 +270,10 @@
   "anotacoes": "R$ 3.000,00",
   "status": "descartada",
   "atualizado_em": "2026-11-06T19:26:30.175Z"
+ },
+ "analista-de-compliance-pleno-grupo-mag": {
+  "status": "duplicada",
+  "atualizado_em": "2026-11-07T02:39:04.808Z",
+  "anotacoes": "vaga repetida (mesma do Empregos.com.br)"
  }
 }
