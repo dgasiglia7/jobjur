@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-06T23:24-03:00",
+ "atualizado_em": "2026-11-07T00:16-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -19,6 +19,25 @@
    "salario_valor": 6000,
    "titulo": "ADVOGADA(O) PLENO - Contencioso Cível Estratégico",
    "url": "https://www.catho.com.br/vagas/advogadao-pleno-contencioso-civel-estrategico/38552283"
+  },
+  "advogado-a-civel-contencioso-senior-processualista": {
+   "adicionada_em": "2026-11-07T00:16-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "Empregos.com.br",
+   "grupo": "top",
+   "local": "Curitiba, PR",
+   "modalidade": "remoto",
+   "nota": 96,
+   "publicada": "2026-11-06",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "À combinar",
+   "salario_valor": null,
+   "titulo": "Advogado(a) Cível Contencioso Sênior (processualista)",
+   "url": "https://www.empregos.com.br/vaga/12005586/advogadoa-civel-contencioso-senior-processualista-em-curitiba-pr"
   },
   "advogado-a-consultivo-a-senior-lbca-lee-brock-camargo-advogados": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -138,6 +157,8 @@
    "publicada": "",
    "regiao": "sp",
    "revisada": true,
+   "salario": "À combinar",
+   "salario_valor": null,
    "titulo": "Advogado(a) Corporativo Pleno (Societário)",
    "url": "https://tokiomarine.gupy.io/jobs/12668908"
   },
@@ -246,6 +267,8 @@
    "publicada": "",
    "regiao": "sp",
    "revisada": true,
+   "salario": "À combinar",
+   "salario_valor": null,
    "titulo": "Advogado(a) Operacional Pleno (Contencioso)",
    "url": "https://tokiomarine.gupy.io/jobs/12651578"
   },
