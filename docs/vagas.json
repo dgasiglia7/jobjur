@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-06T14:16-03:00",
+ "atualizado_em": "2026-11-06T23:24-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -459,6 +459,25 @@
    "revisada": false,
    "titulo": "Advogado Associado Sênior",
    "url": "https://ramosbenedettiadvogados.gupy.io/job/eyJqb2JJZCI6MTI3MzY5NDYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "advogado-civel-contencioso-senior-processualista-confidencial": {
+   "adicionada_em": "2026-11-06T23:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Confidencial.",
+   "encerrada": false,
+   "fonte": "Catho",
+   "grupo": "outras",
+   "local": "Curitiba",
+   "modalidade": "",
+   "nota": 69,
+   "publicada": "2026-11-07",
+   "regiao": "outra",
+   "revisada": false,
+   "salario": "A partir de R$ 10.000,00",
+   "salario_valor": 10000,
+   "titulo": "Advogado Cível Contencioso Sênior (Processualista)",
+   "url": "https://www.catho.com.br/vagas/advogado-civel-contencioso-senior-processualista/39164072"
   },
   "advogado-civel-home-office-green-rh": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1541,7 +1560,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-06T23:24-03:00",
    "fonte": "InfoJobs",
    "grupo": "top",
    "local": "Rio de Janeiro - RJ",
