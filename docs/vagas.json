@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-08T13:33-03:00",
+ "atualizado_em": "2026-11-09T17:31-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -243,7 +243,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Durão & Almeida, Pontes",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-09T17:31-03:00",
    "fonte": "Talent.com",
    "grupo": "top",
    "local": "Rio de Janeiro, Rio de Janeiro",
@@ -646,6 +647,23 @@
    "titulo": "Advogado Cível Pleno",
    "url": "https://www.infojobs.com.br/vaga-de-advogado-civel-pleno-em-rio-janeiro__12043606.aspx"
   },
+  "advogado-civel-producao-de-pecas": {
+   "adicionada_em": "2026-11-09T17:31-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "InfoJobs",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro - RJ",
+   "modalidade": "presencial",
+   "nota": 68,
+   "publicada": "2026-11-09",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado Cível - Produção De Peças",
+   "url": "https://www.infojobs.com.br/vaga-de-advogado-civel-producao-pecas-em-rio-janeiro__12198248.aspx"
+  },
   "advogado-civel-producao-de-pecas-cavalcante-ramos-advogados": {
    "adicionada_em": "2026-11-04T14:51-03:00",
    "atencao": "",
@@ -744,7 +762,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Potencial RH",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-09T17:31-03:00",
    "fonte": "Empregos.com.br",
    "grupo": "top",
    "local": "Rio de Janeiro, RJ",
@@ -793,6 +812,25 @@
    "salario_valor": 4600,
    "titulo": "Advogado Contencioso Civil",
    "url": "https://www.infojobs.com.br/vaga-de-advogado-contencioso-civil-em-rio-janeiro__12071760.aspx"
+  },
+  "advogado-contencioso-estrategico-mercado-de-capitais-rj": {
+   "adicionada_em": "2026-11-09T17:31-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "InfoJobs",
+   "grupo": "top",
+   "local": "Rio de Janeiro - RJ",
+   "modalidade": "híbrido",
+   "nota": 76,
+   "publicada": "2026-11-09",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "R$ 4.200,00 a R$ 5.000,00",
+   "salario_valor": 5000,
+   "titulo": "Advogado Contencioso Estratégico - Mercado De Capitais - RJ",
+   "url": "https://www.infojobs.com.br/vaga-de-advogado-contencioso-estrategico-mercado-capitais-rj-em-rio-janeiro__12200494.aspx"
   },
   "advogado-contencioso-estrategico-senior-e-pleno-ftr-advogados": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -905,7 +943,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Potencial RH",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-09T17:31-03:00",
    "fonte": "Empregos.com.br",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro, RJ",
@@ -971,6 +1010,25 @@
    "revisada": false,
    "titulo": "Advogado Pleno",
    "url": "https://sanchezadv.gupy.io/job/eyJqb2JJZCI6MTI4NDE1MDIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "advogado-pleno-senior-empresa-confidencial": {
+   "adicionada_em": "2026-11-09T17:31-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Empresa Confidencial",
+   "encerrada": false,
+   "fonte": "Catho",
+   "grupo": "top",
+   "local": "Rio de Janeiro",
+   "modalidade": "",
+   "nota": 83,
+   "publicada": "2026-11-09",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "A Combinar + 3 benefícios",
+   "salario_valor": null,
+   "titulo": "Advogado Pleno/Sênior",
+   "url": "https://www.catho.com.br/vagas/advogado-plenosenior/39197657"
   },
   "advogado-senior": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1783,8 +1841,27 @@
    "publicada": "2026-10-30",
    "regiao": "rj",
    "revisada": false,
+   "salario": "A Combinar",
+   "salario_valor": null,
    "titulo": "Coordenador Jurídico - Área Cível",
    "url": "https://br.linkedin.com/jobs/view/coordenador-jur%C3%ADdico-%C3%A1rea-c%C3%ADvel-at-cavalcante-ramos-advogados-4483907271"
+  },
+  "coordenador-juridico-robert-half": {
+   "adicionada_em": "2026-11-09T17:31-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Robert Half",
+   "encerrada": false,
+   "fonte": "Talent.com",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro",
+   "modalidade": "",
+   "nota": 74,
+   "publicada": "2026-09-05",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Coordenador Jurídico",
+   "url": "https://br.talent.com/view?id=635867355577976711"
   },
   "especialista-de-compliance-light": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -1802,6 +1879,23 @@
    "revisada": true,
    "titulo": "Especialista de Compliance",
    "url": "https://talentoslight.gupy.io/job/eyJqb2JJZCI6MTI2MzQ4MTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "especialista-em-contratos-advogado-a-pleno-re-green-participacoes-s-a": {
+   "adicionada_em": "2026-11-09T17:31-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "RE.GREEN PARTICIPACOES S.A.",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "híbrido",
+   "nota": 67,
+   "publicada": "2026-11-09",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Especialista em Contratos - Advogado(a) Pleno",
+   "url": "https://regreen.gupy.io/job/eyJqb2JJZCI6MTI4NTY2MTAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "especialista-em-governanca-risco-e-compliance-de-ti-grc-jabaquara-sp-lm-mobilida": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1991,6 +2085,23 @@
    "revisada": true,
    "titulo": "Gerente Jurídico",
    "url": "https://www.catho.com.br/vagas/gerente-juridico/39004711"
+  },
+  "gerente-juridico-nova-iguacu-unig-carreiras": {
+   "adicionada_em": "2026-11-09T17:31-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "UNIG Carreiras",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "Nova Iguaçu, Rio de Janeiro",
+   "modalidade": "presencial",
+   "nota": 100,
+   "publicada": "2026-11-09",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Gerente Jurídico - Nova Iguaçu",
+   "url": "https://vemserunig.gupy.io/job/eyJqb2JJZCI6MTI4NTc3MzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "gerente-juridico-universidade-iguacu": {
    "adicionada_em": "2026-10-30T20:25:00-03:00",
