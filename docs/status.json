@@ -289,5 +289,15 @@
   "anotacoes": "Escritório em Curitiba (fora do Rio)",
   "status": "descartada",
   "atualizado_em": "2026-11-10T20:52:01.944Z"
+ },
+ "analista-de-riscos-controles-internos-compliance-sr-add": {
+  "status": "duplicada",
+  "atualizado_em": "2026-11-11T19:25:00.000Z",
+  "anotacoes": "vaga repetida (a mesma vaga do Empregos.com.br)"
+ },
+ "analista-de-riscos-controles-internos-compliance-sr-rio-de-janeiro": {
+  "status": "duplicada",
+  "atualizado_em": "2026-11-11T19:25:00.000Z",
+  "anotacoes": "vaga repetida (a mesma vaga do Empregos.com.br)"
  }
 }
