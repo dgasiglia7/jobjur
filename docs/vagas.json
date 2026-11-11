@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-11T10:04-03:00",
+ "atualizado_em": "2026-11-11T10:25-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -920,6 +920,23 @@
    "revisada": true,
    "titulo": "Advogado Corporativo II",
    "url": "https://www.careers.zurich.com/job/S%C3%A3o-Paulo-ADVOG-CORPORATIVO-II/1376223957/"
+  },
+  "advogado-corporativo-robert-half": {
+   "adicionada_em": "2026-11-11T10:25-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Robert Half",
+   "encerrada": false,
+   "fonte": "Talent.com",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro",
+   "modalidade": "",
+   "nota": 68,
+   "publicada": "2026-11-11",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado Corporativo",
+   "url": "https://br.talent.com/view?id=534436417890813926"
   },
   "advogado-especialista-contratos-davita": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
