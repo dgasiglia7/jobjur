@@ -70,7 +70,7 @@ def test_infojobs_detalhes():
 
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
-                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras"}
+                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas"}
 
 
 def test_empregos_com():
@@ -178,3 +178,45 @@ def test_seguradoras_le_paginas_uma_vez(monkeypatch):
     seguradoras.buscar(cliente, "advogado")
     seguradoras.buscar(cliente, "compliance")
     assert chamadas == [1]
+
+
+def test_empresas_greenhouse_filtra_juridico():
+    from jobjur.fontes import empresas
+    dados = {"jobs": [
+        {"title": "Grupo QuintoAndar | Analista Compliance Sênior", "location": {"name": "São Paulo, São Paulo, Brazil"},
+         "absolute_url": "https://job-boards.greenhouse.io/quintoandar/jobs/1", "first_published": "2026-10-27T18:57:05-04:00"},
+        {"title": "Engenheiro de Dados", "location": {"name": "Remoto"}, "absolute_url": "https://x/2"},
+    ]}
+    [v] = empresas.parse_greenhouse(dados, "QuintoAndar")
+    assert v.titulo == "Analista Compliance Sênior" and v.empresa == "QuintoAndar"
+    assert v.local == "São Paulo, São Paulo" and v.publicada == "2026-10-27" and v.fonte == "Empresas"
+
+
+def test_empresas_gupy_usa_nome_da_fonte():
+    from jobjur.fontes import empresas, seguradoras
+    dados = {"props": {"pageProps": {"jobs": [{"id": 7, "title": "Advogado Sênior", "workplace": {}}]}}}
+    html = f'<script id="__NEXT_DATA__" type="application/json">{json.dumps(dados)}</script>'
+    [v] = seguradoras.parse_gupy(html, "asaas", empresas.GUPY, empresas.NOME)
+    assert v.fonte == "Empresas" and v.empresa == "Asaas" and v.url == "https://asaas.gupy.io/jobs/7"
+
+
+def test_empresas_le_paginas_uma_vez(monkeypatch):
+    from jobjur.fontes import empresas
+    chamadas = []
+    monkeypatch.setattr(empresas, "coletar", lambda cliente: chamadas.append(1) or [])
+    cliente = empresas.Cliente(pausa=0)
+    empresas.buscar(cliente, "advogado")
+    empresas.buscar(cliente, "compliance")
+    assert chamadas == [1]
+
+
+def test_empresas_cloudwalk_filtra_pelo_titulo():
+    from jobjur.fontes import empresas
+    card = ('<li><a class="jobs-webflow_card__Y" href="/jobs/{slug}"><div><p class="jobs-webflow_cardTitle__Y">{t}</p>'
+            '<div><p class="jobs-webflow_cardMeta__S">{m}</p><span>Risk and Compliance</span></div></div>'
+            '<span>Apply</span></a></li>')
+    html = (card.format(slug="legal-counsel-abc", t="Legal Counsel", m="São Paulo, BRA · Full Time")
+            + card.format(slug="insider-risk-x", t="Insider Risk Security Engineer", m="Full Time"))
+    [v] = empresas.parse_cloudwalk(html)
+    assert v.url == "https://lp.cloudwalk.io/jobs/legal-counsel-abc" and v.local == "São Paulo, BRA"
+    assert v.empresa == "CloudWalk"
