@@ -39,7 +39,7 @@ def eh_juridica(titulo: str, area: str = "") -> bool:
     return bool(JURIDICO.search(f"{titulo} {area}")) and "pessoa jurídica" not in titulo.lower()
 
 
-def parse_gupy(html: str, sub: str) -> list[Vaga]:
+def parse_gupy(html: str, sub: str, empresas: dict[str, str] = GUPY, fonte: str = NOME) -> list[Vaga]:
     m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
     if not m:
         return []
@@ -50,8 +50,8 @@ def parse_gupy(html: str, sub: str) -> list[Vaga]:
             continue
         endereco = (j.get("workplace") or {}).get("address") or {}
         local = ", ".join(x for x in (endereco.get("city"), endereco.get("stateShortName")) if x)
-        vagas.append(Vaga(fonte=NOME, titulo=titulo, url=f"https://{sub}.gupy.io/jobs/{j['id']}",
-                          empresa=GUPY.get(sub, sub), local=local, descricao=area,
+        vagas.append(Vaga(fonte=fonte, titulo=titulo, url=f"https://{sub}.gupy.io/jobs/{j['id']}",
+                          empresa=empresas.get(sub, sub), local=local, descricao=area,
                           modalidade=MODALIDADES.get(j.get("workplaceType"), "")))
     return vagas
 
