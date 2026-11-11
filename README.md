@@ -42,6 +42,7 @@ Opções úteis: `--termos "advogado,compliance"`, `--fontes "Gupy,LinkedIn"`, `
 | Seguradoras | ✅ coleta | Páginas de carreira de Tokio Marine, Porto, Grupo MAG, Caixa Vida e Previdência, Brasilprev, Brasilseg, Itaú, Zurich, Prudential e Icatu; só vagas da área jurídica. Bradesco, Mapfre, IRB, Allianz, SulAmérica, Sompo e AXA não puderam ser lidas |
 | Empresas | ✅ coleta | Páginas de carreira de Asaas e Grupo Suno (Gupy), de iFood e QuintoAndar (Greenhouse) e da CloudWalk (página própria); só vagas da área jurídica. A Revolut não pôde ser lida (verificação anti-robô); as vagas dela costumam aparecer no LinkedIn |
 | Tecnologia | ✅ coleta | Páginas de carreira de Amazon, Microsoft, Google, IBM, Oracle, Salesforce, Dell, Nubank, PicPay, Stone, PagBank, VTEX, EBANX, Globo, Creditas, Grupo Positivo e Wildlife Studios; só vagas da área jurídica no Brasil. Mercado Livre, Meta, Uber, Apple, SAP, TOTVS e Magazine Luiza não puderam ser lidas |
+| Telecom | ✅ coleta | Páginas de carreira de Vivo, Claro, TIM, V.tal, Algar Telecom, Brisanet, Giga+, Vero, Nio, Unifique, Sky, Nokia e American Tower; só vagas da área jurídica. Oi, Ericsson, Huawei, IHS Towers, Desktop e Ligga não puderam ser lidas |
 | Indeed | ❌ bloqueado | Verificação anti-robô exige login; há conector oficial do Indeed para usar nas conversas com o Claude |
 | Glassdoor | ❌ bloqueado | Responde 403 |
 | Jusbrasil | ❌ sem vagas | A página de vagas agora leva para notícias |
