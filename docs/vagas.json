@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-10T14:33-03:00",
+ "atualizado_em": "2026-11-10T22:56-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -997,6 +997,23 @@
    "titulo": "Advogado interno – Generalista Consultivo Secondment – e-commerce – Marketplace ( São Paulo)",
    "url": "https://dannemann.gupy.io/job/eyJqb2JJZCI6MTI3NTU5MjYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "advogado-pleno-civel-contencioso-faca-parte-do-nosso-time": {
+   "adicionada_em": "2026-11-10T22:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Faça parte do nosso time",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "híbrido",
+   "nota": 78,
+   "publicada": "2026-11-10",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado Pleno - Cível Contencioso",
+   "url": "https://limalobatocolen.gupy.io/job/eyJqb2JJZCI6MTI4NjEyNzAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "advogado-pleno-riopar": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -1210,6 +1227,40 @@
    "salario_valor": null,
    "titulo": "Advogado Sênior",
    "url": "https://www.catho.com.br/vagas/advogado-senior/38963465"
+  },
+  "advogado-senior-foco-em-contratos-e-societario-mpd-engenharia": {
+   "adicionada_em": "2026-11-10T22:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "MPD Engenharia",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "Barueri, São Paulo",
+   "modalidade": "presencial",
+   "nota": 79,
+   "publicada": "2026-11-10",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Advogado Sênior | Foco em Contratos e Societário",
+   "url": "https://mpdengenharia.gupy.io/job/eyJqb2JJZCI6MTI4NjQyODksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "advogado-senior-temporario-biz": {
+   "adicionada_em": "2026-11-10T22:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Biz",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "híbrido",
+   "nota": 73,
+   "publicada": "2026-11-10",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Advogado Sênior (temporário)",
+   "url": "https://biz.gupy.io/job/eyJqb2JJZCI6MTI4NjYwNDMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-societario-e-governanca-pleno-confidencial": {
    "adicionada_em": "2026-11-03T14:38-03:00",
@@ -1469,6 +1520,44 @@
    "revisada": true,
    "titulo": "Analista de Operações Jurídicas Pleno",
    "url": "https://caixavidaeprevidencia.gupy.io/jobs/12794020"
+  },
+  "analista-de-riscos-controles-internos-compliance-pleno": {
+   "adicionada_em": "2026-11-10T22:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "Empregos.com.br",
+   "grupo": "top",
+   "local": "Sorocaba, SP",
+   "modalidade": "remoto",
+   "nota": 89,
+   "publicada": "2026-11-11",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "À combinar",
+   "salario_valor": null,
+   "titulo": "Analista de Riscos |controles Internos|compliance Pleno",
+   "url": "https://www.empregos.com.br/vaga/12016125/analista-de-riscos-controles-internoscompliance-pleno-em-sorocaba-sp"
+  },
+  "analista-de-riscos-controles-internos-compliance-sr": {
+   "adicionada_em": "2026-11-10T22:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "Empregos.com.br",
+   "grupo": "top",
+   "local": "Rio de Janeiro, RJ",
+   "modalidade": "remoto",
+   "nota": 100,
+   "publicada": "2026-11-11",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "À combinar",
+   "salario_valor": null,
+   "titulo": "Analista de Riscos |controles Internos|compliance Sr",
+   "url": "https://www.empregos.com.br/vaga/12016118/analista-de-riscos-controles-internoscompliance-sr-em-rio-de-janeiro-rj"
   },
   "analista-ii-pcd-gerencia-juridica-coordenacao-de-consultoria-juridica-gd9-assess": {
    "adicionada_em": "2026-10-31T05:22-03:00",
