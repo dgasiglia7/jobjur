@@ -70,7 +70,7 @@ def test_infojobs_detalhes():
 
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
-                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas"}
+                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas", "Tecnologia"}
 
 
 def test_empregos_com():
@@ -220,3 +220,32 @@ def test_empresas_cloudwalk_filtra_pelo_titulo():
     [v] = empresas.parse_cloudwalk(html)
     assert v.url == "https://lp.cloudwalk.io/jobs/legal-counsel-abc" and v.local == "São Paulo, BRA"
     assert v.empresa == "CloudWalk"
+
+
+def test_tecnologia_parsers():
+    from jobjur.fontes import tecnologia as t
+    [a] = t.parse_amazon({"jobs": [
+        {"title": "Sr Corporate Counsel - Retail", "job_path": "/en/jobs/1/sr", "normalized_location": "Sao Paulo, Sao Paulo, BRA"},
+        {"title": "Software Engineer", "job_path": "/en/jobs/2/se"}]})
+    assert a.url == "https://www.amazon.jobs/en/jobs/1/sr" and a.local == "Sao Paulo, Sao Paulo" and a.fonte == "Tecnologia"
+    [m] = t.parse_microsoft({"data": {"positions": [
+        {"name": "Corporate Counsel", "positionUrl": "/careers/job/9", "locations": ["São Paulo, Brazil"], "postedTs": 1793991679,
+         "workLocationOption": "hybrid", "department": "Legal"},
+        {"name": "Area Support Lead", "positionUrl": "/careers/job/8", "department": "Support"}]}})
+    assert m.url == "https://apply.careers.microsoft.com/careers/job/9" and m.modalidade == "híbrido" and m.publicada
+    html = '[["111024354363351750","Legal Counsel, Brazil","https://www.google.com/about/careers/applications/signin?jobId=x"],["222024354363351750","Software Engineer","https://www.google.com/about/careers/applications/signin?jobId=y"]'
+    [g] = t.parse_google(html)
+    assert g.url.endswith("/results/111024354363351750") and g.titulo == "Legal Counsel, Brazil"
+    [o] = t.parse_oracle({"items": [{"requisitionList": [
+        {"Title": "Estagiário Jurídico", "Id": "11941", "PrimaryLocation": "SAO PAULO, SP, Brasil", "PostedDate": "2026-09-30"},
+        {"Title": "Legal Counsel", "Id": "1", "PrimaryLocation": "Austin, TX, United States"}]}]}, "PicPay", "https://x/job/{id}")
+    assert o.url == "https://x/job/11941" and o.local == "SAO PAULO, SP"
+    [n] = t.parse_ashby({"jobs": [
+        {"title": "Compliance Specialist", "location": "São Paulo", "jobUrl": "https://jobs.ashbyhq.com/nubank/a",
+         "workplaceType": "Hybrid", "address": {"postalAddress": {"addressCountry": "Brazil"}}},
+        {"title": "Compliance Expert", "location": "Ciudad de México", "jobUrl": "https://jobs.ashbyhq.com/nubank/b",
+         "address": {"postalAddress": {"addressCountry": "Mexico"}}}]}, "Nubank")
+    assert n.url.endswith("/a") and n.modalidade == "híbrido"
+    [i] = t.parse_ibm({"hits": {"hits": [{"_source": {"title": "Advogado Sênior", "url": "https://careers.ibm.com/x",
+                                                      "field_keyword_19": "SÃO PAULO, BR"}}]}})
+    assert i.empresa == "IBM" and i.local == "São Paulo"
