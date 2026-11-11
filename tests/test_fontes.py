@@ -70,7 +70,7 @@ def test_infojobs_detalhes():
 
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
-                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas", "Tecnologia"}
+                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas", "Tecnologia", "Telecom"}
 
 
 def test_empregos_com():
@@ -249,3 +249,13 @@ def test_tecnologia_parsers():
     [i] = t.parse_ibm({"hits": {"hits": [{"_source": {"title": "Advogado Sênior", "url": "https://careers.ibm.com/x",
                                                       "field_keyword_19": "SÃO PAULO, BR"}}]}})
     assert i.empresa == "IBM" and i.local == "São Paulo"
+
+
+def test_telecom_le_paginas_uma_vez(monkeypatch):
+    from jobjur.fontes import telecom
+    chamadas = []
+    monkeypatch.setattr(telecom, "coletar", lambda cliente: chamadas.append(1) or [])
+    cliente = telecom.Cliente(pausa=0)
+    telecom.buscar(cliente, "advogado")
+    telecom.buscar(cliente, "compliance")
+    assert chamadas == [1]

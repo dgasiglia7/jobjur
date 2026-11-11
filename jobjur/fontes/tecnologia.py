@@ -163,13 +163,13 @@ def _ibm(cliente: Cliente) -> list[Vaga]:
     return parse_ibm(cliente.json("https://www-api.ibm.com/search/api/v2", "POST", corpo))
 
 
-def _oracle(cliente: Cliente, empresa: str) -> list[Vaga]:
-    servidor, site, link = ORACLE_HCM[empresa]
+def _oracle(cliente: Cliente, empresa: str, hcm: dict = ORACLE_HCM) -> list[Vaga]:
+    servidor, site, link = hcm[empresa]
     vagas = []
     for offset in range(0, 1000, 200):
         finder = f"findReqs;siteNumber={site},limit=200,offset={offset},sortBy=POSTING_DATES_DESC"
-        if empresa == "Oracle":
-            finder += ",keyword=Brazil"  # a Oracle tem milhares de vagas no mundo
+        if empresa in {"Oracle", "Nokia", "American Tower"}:
+            finder += ",keyword=Brazil"  # empresas com milhares de vagas no mundo
         dados = cliente.json(f"{servidor}/hcmRestApi/resources/latest/recruitingCEJobRequisitions?" + urlencode(
             {"onlyData": "true", "expand": "requisitionList.secondaryLocations", "finder": finder}))
         vagas += parse_oracle(dados, empresa, link)
