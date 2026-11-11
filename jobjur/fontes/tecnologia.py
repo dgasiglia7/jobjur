@@ -157,7 +157,7 @@ def _google(cliente: Cliente) -> list[Vaga]:
 
 
 def _ibm(cliente: Cliente) -> list[Vaga]:
-    corpo = {"appId": "careers", "scopes": ["careers2"], "size": 200, "from": 0, "lang": "zz",
+    corpo = {"appId": "careers", "scopes": ["careers2"], "size": 100, "from": 0, "lang": "zz",
              "query": {"bool": {"must": [{"term": {"field_keyword_05": "Brazil"}}]}},
              "_source": ["title", "url", "field_keyword_19", "field_keyword_05", "field_keyword_08"]}
     return parse_ibm(cliente.json("https://www-api.ibm.com/search/api/v2", "POST", corpo))
