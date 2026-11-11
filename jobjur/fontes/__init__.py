@@ -13,13 +13,14 @@ Acrescentada em 2026-11-07: páginas de carreira das maiores seguradoras (ver se
 Acrescentada em 2026-11-10: páginas de carreira de Asaas, Grupo Suno, iFood, QuintoAndar e CloudWalk (ver empresas.py).
 Acrescentada em 2026-11-11: páginas de carreira das maiores empresas de tecnologia (ver tecnologia.py).
 Acrescentada em 2026-11-11: páginas de carreira das maiores empresas de telecomunicações (ver telecom.py).
+Acrescentada em 2026-11-11: páginas de carreira dos maiores bancos e empresas do setor financeiro (ver financeiro.py).
 """
 
-from . import (bne, catho, empregare, empresas, empregos_com, gupy, infojobs, linkedin, riovagas, seguradoras,
+from . import (bne, catho, empregare, empresas, empregos_com, financeiro, gupy, infojobs, linkedin, riovagas, seguradoras,
                talent, tecnologia, telecom, trabalha_brasil, vagas_com)
 from .base import Cliente, Local, Vaga
 
 FONTES = {m.NOME: m for m in (gupy, linkedin, vagas_com, catho, infojobs, empregos_com, bne, trabalha_brasil,
-                                 empregare, talent, riovagas, seguradoras, empresas, tecnologia, telecom)}
+                                 empregare, talent, riovagas, seguradoras, empresas, tecnologia, telecom, financeiro)}
 
 __all__ = ["FONTES", "Cliente", "Local", "Vaga"]

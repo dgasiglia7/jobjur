@@ -70,7 +70,8 @@ def test_infojobs_detalhes():
 
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
-                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas", "Tecnologia", "Telecom"}
+                           "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas", "Tecnologia", "Telecom",
+                           "Financeiro"}
 
 
 def test_empregos_com():
@@ -259,3 +260,32 @@ def test_telecom_le_paginas_uma_vez(monkeypatch):
     telecom.buscar(cliente, "advogado")
     telecom.buscar(cliente, "compliance")
     assert chamadas == [1]
+
+
+def test_financeiro_lever_filtra_juridico():
+    from jobjur.fontes import financeiro
+    dados = [
+        {"text": "Advogado(a) Contencioso", "hostedUrl": "https://jobs.lever.co/bv/1", "createdAt": 1762819200000,
+         "categories": {"location": "São Paulo, SP", "team": "Jurídico"}, "workplaceType": "hybrid"},
+        {"text": "Engenheiro de Dados", "hostedUrl": "https://jobs.lever.co/bv/2", "categories": {"team": "Dados"}},
+    ]
+    vagas = financeiro.parse_lever(dados, "Banco BV")
+    assert [v.titulo for v in vagas] == ["Advogado(a) Contencioso"]
+    assert vagas[0].empresa == "Banco BV" and vagas[0].publicada == "2025-11-11" and vagas[0].local == "São Paulo, SP"
+
+
+def test_financeiro_le_paginas_uma_vez(monkeypatch):
+    from jobjur.fontes import financeiro
+    chamadas = []
+    monkeypatch.setattr(financeiro, "coletar", lambda cliente: chamadas.append(1) or [])
+    cliente = financeiro.Cliente(pausa=0)
+    financeiro.buscar(cliente, "advogado")
+    financeiro.buscar(cliente, "compliance")
+    assert chamadas == [1]
+
+
+def test_cargo_comercial_pessoa_juridica_nao_e_juridico():
+    from jobjur.fontes.seguradoras import eh_juridica
+    assert not eh_juridica("Gerente de Negócios Pessoa Física, Jurídica e Agro")
+    assert not eh_juridica("Gerente de Relacionamento Pessoa Jurídica")
+    assert eh_juridica("Analista Jurídico")
