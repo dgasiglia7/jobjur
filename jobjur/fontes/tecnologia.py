@@ -168,7 +168,7 @@ def _oracle(cliente: Cliente, empresa: str, hcm: dict = ORACLE_HCM) -> list[Vaga
     vagas = []
     for offset in range(0, 1000, 200):
         finder = f"findReqs;siteNumber={site},limit=200,offset={offset},sortBy=POSTING_DATES_DESC"
-        if empresa in {"Oracle", "Nokia", "American Tower"}:
+        if empresa in {"Oracle", "Nokia", "American Tower", "JPMorgan"}:
             finder += ",keyword=Brazil"  # empresas com milhares de vagas no mundo
         dados = cliente.json(f"{servidor}/hcmRestApi/resources/latest/recruitingCEJobRequisitions?" + urlencode(
             {"onlyData": "true", "expand": "requisitionList.secondaryLocations", "finder": finder}))
