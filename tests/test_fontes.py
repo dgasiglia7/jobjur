@@ -282,3 +282,10 @@ def test_financeiro_le_paginas_uma_vez(monkeypatch):
     financeiro.buscar(cliente, "advogado")
     financeiro.buscar(cliente, "compliance")
     assert chamadas == [1]
+
+
+def test_cargo_comercial_pessoa_juridica_nao_e_juridico():
+    from jobjur.fontes.seguradoras import eh_juridica
+    assert not eh_juridica("Gerente de Negócios Pessoa Física, Jurídica e Agro")
+    assert not eh_juridica("Gerente de Relacionamento Pessoa Jurídica")
+    assert eh_juridica("Analista Jurídico")

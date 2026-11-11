@@ -33,10 +33,12 @@ PRUDENTIAL = "https://pru.wd5.myworkdayjobs.com"
 MODALIDADES = {"remote": "remoto", "hybrid": "híbrido", "on-site": "presencial"}
 JURIDICO = re.compile(r"jur[ií]dic|advog|compliance|contencioso|societ[aá]ri|regulat[oó]ri|privacy|privacidade|"
                       r"\blegal\b|lawyer|counsel|paralegal", re.I)
+CLIENTE_PJ = re.compile(r"pessoas? jur[ií]dica|f[ií]sica,? (e )?jur[ií]dica", re.I)
 
 
 def eh_juridica(titulo: str, area: str = "") -> bool:
-    return bool(JURIDICO.search(f"{titulo} {area}")) and "pessoa jurídica" not in titulo.lower()
+    # "Gerente PJ", "Pessoa Física, Jurídica e Agro": cargos comerciais, não da área jurídica
+    return bool(JURIDICO.search(f"{titulo} {area}")) and not CLIENTE_PJ.search(titulo)
 
 
 def parse_gupy(html: str, sub: str, empresas: dict[str, str] = GUPY, fonte: str = NOME) -> list[Vaga]:
