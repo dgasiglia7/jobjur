@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-11T01:02-03:00",
+ "atualizado_em": "2026-11-11T10:04-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -181,6 +181,23 @@
    "salario_valor": 5820,
    "titulo": "Advogado(a) Direito Empresarial e Holding",
    "url": "https://www.catho.com.br/vagas/advogadoa-direito-empresarial-e-holding/39102336"
+  },
+  "advogado-a-especialista-compliance-eneva": {
+   "adicionada_em": "2026-11-11T10:04-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Eneva",
+   "encerrada": false,
+   "fonte": "Talent.com",
+   "grupo": "top",
+   "local": "Rio de Janeiro, RJ",
+   "modalidade": "",
+   "nota": 85,
+   "publicada": "2026-11-10",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado (a) Especialista - Compliance",
+   "url": "https://br.talent.com/view?id=645578877748644370"
   },
   "advogado-a-generalista": {
    "adicionada_em": "2026-10-31T05:22-03:00",
