@@ -13,6 +13,7 @@ Camargo Corrêa, Racional e Construcap.
 
 import html as html_lib
 import logging
+import re
 
 from bs4 import BeautifulSoup
 
@@ -75,6 +76,21 @@ def parse_pandape(html: str, sub: str, empresa: str) -> list[Vaga]:
     return vagas
 
 
+def ler_pandape(cliente: Cliente, sub: str, empresa: str, paginas: int = 10) -> list[Vaga]:
+    """A página do Pandapé mostra 20 vagas por vez; as seguintes vêm com ?PageNumber=2, 3..."""
+    vagas, vistos = [], set()
+    for pagina in range(1, paginas + 1):
+        html = cliente.get(f"https://{sub}.pandape.infojobs.com.br/", PageNumber=pagina)
+        ids = set(re.findall(r'href="/Detail/(\d+)"', html))
+        if not ids or ids <= vistos:
+            break
+        vistos |= ids
+        vagas += parse_pandape(html, sub, empresa)
+        if len(ids) < 20:
+            break
+    return vagas
+
+
 def parse_vagas_com(html: str, trecho: str, empresa: str) -> list[Vaga]:
     vagas = []
     for v in vagas_com.parse(html):
@@ -87,8 +103,7 @@ def parse_vagas_com(html: str, trecho: str, empresa: str) -> list[Vaga]:
 def coletar(cliente: Cliente) -> list[Vaga]:
     tarefas = [(sub, lambda sub=sub: parse_gupy(cliente.get(f"https://{sub}.gupy.io/"), sub, GUPY, NOME))
                for sub in GUPY]
-    tarefas += [(sub, lambda sub=sub: parse_pandape(cliente.get(f"https://{sub}.pandape.infojobs.com.br/"), sub,
-                                                    PANDAPE[sub])) for sub in PANDAPE]
+    tarefas += [(sub, lambda sub=sub: ler_pandape(cliente, sub, PANDAPE[sub])) for sub in PANDAPE]
     tarefas += [(busca, lambda busca=busca: parse_vagas_com(cliente.get(f"https://www.vagas.com.br/vagas-de-{busca}"),
                                                             *VAGAS_COM[busca])) for busca in VAGAS_COM]
     vagas = []
