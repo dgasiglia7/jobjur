@@ -71,7 +71,7 @@ def test_infojobs_detalhes():
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
                            "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas", "Tecnologia", "Telecom",
-                           "Financeiro"}
+                           "Financeiro", "Construção"}
 
 
 def test_empregos_com():
@@ -289,3 +289,24 @@ def test_cargo_comercial_pessoa_juridica_nao_e_juridico():
     assert not eh_juridica("Gerente de Negócios Pessoa Física, Jurídica e Agro")
     assert not eh_juridica("Gerente de Relacionamento Pessoa Jurídica")
     assert eh_juridica("Analista Jurídico")
+
+
+def test_construcao_pandape_filtra_juridico():
+    from jobjur.fontes import construcao
+    html = """
+    <a class="card card-vacancy" href="/Detail/1"><h3 title="Advogado(a) Imobili&#xE1;rio">x</h3>
+      <div class="vacancy-detail"><div class="align-middle mr-20">S&#xE3;o Paulo - SP</div></div></a>
+    <a class="card card-vacancy" href="/Detail/2"><h3 title="Corretor de Im&#xF3;veis">x</h3></a>"""
+    vagas = construcao.parse_pandape(html, "trisul", "Trisul")
+    assert [(v.titulo, v.local, v.url) for v in vagas] == [
+        ("Advogado(a) Imobiliário", "São Paulo - SP", "https://trisul.pandape.infojobs.com.br/Detail/1")]
+
+
+def test_construcao_le_paginas_uma_vez(monkeypatch):
+    from jobjur.fontes import construcao
+    chamadas = []
+    monkeypatch.setattr(construcao, "coletar", lambda cliente: chamadas.append(1) or [])
+    cliente = construcao.Cliente(pausa=0)
+    construcao.buscar(cliente, "advogado")
+    construcao.buscar(cliente, "compliance")
+    assert chamadas == [1]
