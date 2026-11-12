@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-12T14:59-03:00",
+ "atualizado_em": "2026-11-12T17:02-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -162,6 +162,25 @@
    "salario_valor": null,
    "titulo": "Advogado(a) Corporativo Pleno (Societário)",
    "url": "https://tokiomarine.gupy.io/jobs/12668908"
+  },
+  "advogado-a-de-contencioso-civel-pleno-senior-lewarpro-talent-way": {
+   "adicionada_em": "2026-11-12T17:02-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "LEWARPRO TALENT WAY",
+   "encerrada": false,
+   "fonte": "Catho",
+   "grupo": "outras",
+   "local": "Curitiba",
+   "modalidade": "",
+   "nota": 69,
+   "publicada": "2026-11-12",
+   "regiao": "outra",
+   "revisada": false,
+   "salario": "A Combinar + 1 benefício",
+   "salario_valor": null,
+   "titulo": "Advogado(a) de Contencioso Cível Pleno/Sênior",
+   "url": "https://www.catho.com.br/vagas/advogadoa-de-contencioso-civel-plenosenior/39244179"
   },
   "advogado-a-direito-empresarial-e-holding-meet-recrutamento-e-selecao": {
    "adicionada_em": "2026-11-03T14:38-03:00",
@@ -483,6 +502,23 @@
    "salario_valor": 10000,
    "titulo": "Advogado(a) Sênior | Contencioso Estratégico",
    "url": "https://www.empregos.com.br/vaga/11826816/advogadoa-senior-contencioso-estrategico-em-sao-paulo-sp"
+  },
+  "advogado-a-senior-contratos-e-consultivo-quod": {
+   "adicionada_em": "2026-11-12T17:02-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Quod",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "Barueri, São Paulo",
+   "modalidade": "híbrido",
+   "nota": 81,
+   "publicada": "2026-11-12",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Advogado(a) Sênior | Contratos e Consultivo",
+   "url": "https://vempraquod.gupy.io/job/eyJqb2JJZCI6MTI4MDQxMjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-a-senior-de-compliance-instituicao-financeira": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -1009,6 +1045,25 @@
    "titulo": "Advogado - Especialista em Direito Empresarial",
    "url": "https://www.empregos.com.br/vaga/11976113/advogado-especialista-em-direito-empresarial-em-curitiba-pr"
   },
+  "advogado-especialista-em-governanca-corporativa-compliance-e-assessoria-aos-orga": {
+   "adicionada_em": "2026-11-12T17:02-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "CABESP",
+   "encerrada": false,
+   "fonte": "Catho",
+   "grupo": "sp",
+   "local": "São Paulo",
+   "modalidade": "",
+   "nota": 69,
+   "publicada": "2026-11-12",
+   "regiao": "sp",
+   "revisada": false,
+   "salario": "A Combinar + 7 benefícios",
+   "salario_valor": null,
+   "titulo": "Advogado - Especialista em Governança Corporativa, Compliance e Assessoria aos Órgãos de Governança",
+   "url": "https://www.catho.com.br/vagas/advogado-especialista-em-governanca-corporativa-compliance-e-assessoria-aos-orgaos-de-governanca/39244644"
+  },
   "advogado-especialista-em-seguros-gestao-de-riscos-sucessao-patrimonial-aline-nas": {
    "adicionada_em": "2026-11-05T23:53-03:00",
    "atencao": "",
@@ -1439,7 +1494,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Mag seguros",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-12T17:02-03:00",
    "fonte": "Talent.com",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro, RJ, Brazil",
@@ -2339,6 +2395,23 @@
    "revisada": false,
    "titulo": "Especialista Jurídico - Contratos",
    "url": "https://swapfinancial.gupy.io/job/eyJqb2JJZCI6MTI4MTE4MDYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "especialista-juridico-rio-de-janeiro-rj-oceanica": {
+   "adicionada_em": "2026-11-12T17:02-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Oceânica",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "presencial",
+   "nota": 95,
+   "publicada": "2026-11-12",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Especialista Jurídico | Rio de Janeiro/RJ",
+   "url": "https://sejaoceanica.gupy.io/job/eyJqb2JJZCI6MTI4NjA3MjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "especialista-juridico-societario-wilson-sons": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
