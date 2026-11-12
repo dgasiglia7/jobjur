@@ -71,7 +71,7 @@ def test_infojobs_detalhes():
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
                            "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas", "Tecnologia", "Telecom",
-                           "Financeiro", "Construção"}
+                           "Financeiro", "Construção", "Transporte"}
 
 
 def test_empregos_com():
@@ -309,4 +309,27 @@ def test_construcao_le_paginas_uma_vez(monkeypatch):
     cliente = construcao.Cliente(pausa=0)
     construcao.buscar(cliente, "advogado")
     construcao.buscar(cliente, "compliance")
+    assert chamadas == [1]
+
+
+def test_construcao_pandape_para_quando_a_pagina_repete():
+    from jobjur.fontes import construcao
+    html = '<a class="card card-vacancy" href="/Detail/1"><h3 title="Advogado(a)">x</h3></a>'
+    chamadas = []
+
+    class Falso:
+        def get(self, url, **params):
+            chamadas.append(params)
+            return html
+    vagas = construcao.ler_pandape(Falso(), "braspress", "Braspress")
+    assert len(vagas) == 1 and chamadas == [{"PageNumber": 1}]
+
+
+def test_transporte_le_paginas_uma_vez(monkeypatch):
+    from jobjur.fontes import transporte
+    chamadas = []
+    monkeypatch.setattr(transporte, "coletar", lambda cliente: chamadas.append(1) or [])
+    cliente = transporte.Cliente(pausa=0)
+    transporte.buscar(cliente, "advogado")
+    transporte.buscar(cliente, "compliance")
     assert chamadas == [1]
