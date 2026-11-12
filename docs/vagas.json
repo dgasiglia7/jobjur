@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-11T16:08-03:00",
+ "atualizado_em": "2026-11-12T14:59-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1434,6 +1434,23 @@
    "titulo": "Analista de Compliance Pleno",
    "url": "https://www.empregos.com.br/vaga/11996561/analista-de-compliance-pleno-em-rio-de-janeiro-rj"
   },
+  "analista-de-compliance-pleno-rj-mag-seguros": {
+   "adicionada_em": "2026-11-12T14:59-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Mag seguros",
+   "encerrada": false,
+   "fonte": "Talent.com",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro, RJ, Brazil",
+   "modalidade": "",
+   "nota": 68,
+   "publicada": "2026-11-12",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Analista de Compliance Pleno - RJ",
+   "url": "https://br.talent.com/view?id=645797305413666045"
+  },
   "analista-de-compliance-senior-asset-management-fii-fidc-e-fip-hsi": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -1611,7 +1628,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-12T14:59-03:00",
    "fonte": "Empregos.com.br",
    "grupo": "top",
    "local": "Sorocaba, SP",
@@ -1630,7 +1648,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-12T14:59-03:00",
    "fonte": "Empregos.com.br",
    "grupo": "top",
    "local": "Rio de Janeiro, RJ",
@@ -1747,6 +1766,23 @@
    "revisada": false,
    "titulo": "Analista Jurídico Sênior - Institucional",
    "url": "https://vagasgpappp.gupy.io/job/eyJqb2JJZCI6MTI4MzQwMjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "analista-juridico-senior-salvador-ba-grupo-newchase": {
+   "adicionada_em": "2026-11-12T14:59-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Grupo NewChase",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "outras",
+   "local": "Salvador, Bahia",
+   "modalidade": "presencial",
+   "nota": 69,
+   "publicada": "2026-11-11",
+   "regiao": "outra",
+   "revisada": false,
+   "titulo": "Analista Jurídico Sênior - Salvador/BA",
+   "url": "https://gruponewchase.gupy.io/job/eyJqb2JJZCI6MTI4NzYxMjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "analista-juridico-senior-softexpert": {
    "adicionada_em": "2026-10-31T03:32:00-03:00",
