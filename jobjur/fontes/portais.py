@@ -22,7 +22,7 @@ from urllib.parse import unquote
 
 from bs4 import BeautifulSoup
 
-from .base import Cliente, Local, Vaga, limpar, slug
+from .base import Cliente, Local, Vaga, limpar
 from .construcao import parse_vagas_com
 from .seguradoras import eh_juridica, parse_gupy
 
@@ -151,9 +151,9 @@ def coletar(cliente: Cliente) -> list[Vaga]:
         ("Randstad", lambda: parse_randstad(cliente.get("https://www.randstad.com.br/vagas/s-juridico/"))),
         ("Grupo Selpe", lambda: parse_selpe(cliente.get("https://vagas.recrutamentointeligente.net/gruposelpe"))),
     ]
+    # o Curriculum só tem página para cargos ("jurídico" dá 404)
+    tarefas.append(("Curriculum", lambda: parse_curriculum(cliente.get("https://www.curriculum.com.br/vagas/de/advogado"))))
     for termo in TERMOS:
-        tarefas.append((f"Curriculum {termo}", lambda termo=termo: parse_curriculum(
-            cliente.get(f"https://www.curriculum.com.br/vagas/de/{slug(termo)}"))))
         tarefas.append((f"99jobs {termo}", lambda termo=termo: parse_99jobs(
             cliente.get("https://www.99jobs.com/opportunities/filtered_search", **{"search[term]": termo}))))
     tarefas += [(sub, lambda sub=sub: parse_gupy(cliente.get(f"https://{sub}.gupy.io/"), sub, GUPY, NOME)) for sub in GUPY]
