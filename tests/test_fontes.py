@@ -371,3 +371,18 @@ def test_portais_parsers():
           '&quot;url&quot;:&quot;https://vagas.recrutamentointeligente.net/gruposelpe/detalhe/a/R1&quot;}]}}"></div>')
     [v] = portais.parse_selpe(se)
     assert (v.titulo, v.local) == ("Advogado Júnior", "Niterói/RJ")
+
+
+def test_portais_mostram_o_nome_do_site(monkeypatch):
+    from jobjur.fontes import portais
+    html = ('<a class="card" href="/vagas/vaga/1/de-Advogado"><span class="card-titulo">Advogado Jr</span>'
+            '<span class="card-meta">X · Rio de Janeiro/RJ</span></a>')
+
+    class Falso:
+        def get(self, url, **params):
+            if "curriculum" in url:
+                return html
+            raise RuntimeError("fora do ar")
+
+    [v] = portais.coletar(Falso())
+    assert v.fonte == "Curriculum"
