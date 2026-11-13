@@ -31,7 +31,7 @@ log = logging.getLogger(__name__)
 
 TERMOS = ("advogado", "jurídico")
 GUPY = {"winnerrh": "Winner RH"}
-VAGAS_COM = {"jobcenter": ("jobcenter", "Jobcenter do Brasil"), "resch": ("resch", "Resch Recursos Humanos")}
+VAGAS_COM = {"jobcenter": ("jobcenter", "Jobcenter"), "resch": ("resch", "Resch RH")}
 
 
 def _juridicas(vagas: list[Vaga]) -> list[Vaga]:
@@ -154,10 +154,10 @@ def coletar(cliente: Cliente) -> list[Vaga]:
     # o Curriculum só tem página para cargos ("jurídico" dá 404)
     tarefas.append(("Curriculum", lambda: parse_curriculum(cliente.get("https://www.curriculum.com.br/vagas/de/advogado"))))
     for termo in TERMOS:
-        tarefas.append((f"99jobs {termo}", lambda termo=termo: parse_99jobs(
+        tarefas.append(("99jobs", lambda termo=termo: parse_99jobs(
             cliente.get("https://www.99jobs.com/opportunities/filtered_search", **{"search[term]": termo}))))
-    tarefas += [(sub, lambda sub=sub: parse_gupy(cliente.get(f"https://{sub}.gupy.io/"), sub, GUPY, NOME)) for sub in GUPY]
-    tarefas += [(busca, lambda busca=busca: parse_vagas_com(cliente.get(f"https://www.vagas.com.br/vagas-de-{busca}"),
+    tarefas += [(GUPY[sub], lambda sub=sub: parse_gupy(cliente.get(f"https://{sub}.gupy.io/"), sub, GUPY, NOME)) for sub in GUPY]
+    tarefas += [(VAGAS_COM[busca][1], lambda busca=busca: parse_vagas_com(cliente.get(f"https://www.vagas.com.br/vagas-de-{busca}"),
                                                             *VAGAS_COM[busca])) for busca in VAGAS_COM]
     vagas, vistas = [], set()
     for nome, tarefa in tarefas:
@@ -170,7 +170,7 @@ def coletar(cliente: Cliente) -> list[Vaga]:
             if v.url in vistas:  # "advogado" e "jurídico" trazem as mesmas vagas
                 continue
             vistas.add(v.url)
-            v.fonte = NOME
+            v.fonte = nome  # no painel cada vaga mostra o portal de onde veio, como nos outros portais
             vagas.append(v)
     return vagas
 
