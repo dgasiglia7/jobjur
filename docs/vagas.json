@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-12T21:37-03:00",
+ "atualizado_em": "2026-11-13T14:35-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -315,7 +315,8 @@
    "atencao": "Em São Paulo; nível pleno",
    "combina": "Contencioso securitário, área que ela domina",
    "empresa": "Tokio Marine",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-13T14:35-03:00",
    "fonte": "Site da seguradora",
    "grupo": "sp",
    "local": "São Paulo, SP",
@@ -414,6 +415,25 @@
    "revisada": true,
    "titulo": "Advogado(a) Pleno",
    "url": "https://to.indeed.com/aa9kzl26dxdz"
+  },
+  "advogado-a-pleno-senior-contencioso-estrategico-empresa-confidencial": {
+   "adicionada_em": "2026-11-13T14:35-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Empresa Confidencial",
+   "encerrada": false,
+   "fonte": "Catho",
+   "grupo": "sp",
+   "local": "São Paulo",
+   "modalidade": "",
+   "nota": 69,
+   "publicada": "2026-11-13",
+   "regiao": "sp",
+   "revisada": false,
+   "salario": "A Combinar",
+   "salario_valor": null,
+   "titulo": "Advogado(a) Pleno/Sênior - Contencioso Estratégico",
+   "url": "https://www.catho.com.br/vagas/advogadoa-plenosenior-contencioso-estrategico/38768704"
   },
   "advogado-a-pleno-senior-penal-empresarial-e-compliance-bichara-advogados": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -1349,6 +1369,23 @@
    "titulo": "Advogado Sênior, Contratos (secondment)",
    "url": "https://to.indeed.com/aalkcxgn6s4v"
   },
+  "advogado-senior-davita-tratamento-renal-corporativo": {
+   "adicionada_em": "2026-11-13T14:35-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "DaVita Tratamento Renal - Corporativo",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "presencial",
+   "nota": 100,
+   "publicada": "2026-11-13",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado Sênior",
+   "url": "https://davitacorporativo.gupy.io/job/eyJqb2JJZCI6MTI4NTQ3ODQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "advogado-senior-empresa-confidencial": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -1470,6 +1507,23 @@
    "titulo": "Analista Compliance Sênior",
    "url": "https://nuclea.gupy.io/job/eyJqb2JJZCI6MTI4NTM2MzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "analista-compliance-sr-unidas": {
+   "adicionada_em": "2026-11-13T14:35-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Unidas",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "outras",
+   "local": "Curitiba, Paraná",
+   "modalidade": "híbrido",
+   "nota": 65,
+   "publicada": "2026-11-13",
+   "regiao": "outra",
+   "revisada": false,
+   "titulo": "ANALISTA COMPLIANCE SR",
+   "url": "https://unidas.gupy.io/job/eyJqb2JJZCI6MTI4ODk4OTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "analista-de-compliance-pleno-grupo-mag": {
    "adicionada_em": "2026-11-06T14:16-03:00",
    "atencao": "",
@@ -1511,7 +1565,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Mag seguros",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-13T14:35-03:00",
    "fonte": "Talent.com",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro, RJ, Brazil",
