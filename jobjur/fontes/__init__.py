@@ -16,13 +16,14 @@ Acrescentada em 2026-11-11: páginas de carreira das maiores empresas de telecom
 Acrescentada em 2026-11-11: páginas de carreira dos maiores bancos e empresas do setor financeiro (ver financeiro.py).
 Acrescentada em 2026-11-12: páginas de carreira das maiores construtoras e incorporadoras (ver construcao.py).
 Acrescentada em 2026-11-12: páginas de carreira das maiores empresas de transporte terrestre (ver transporte.py).
+Acrescentada em 2026-11-13: portais e consultorias de recrutamento da planilha de sites (ver portais.py).
 """
 
-from . import (bne, catho, construcao, empregare, empresas, empregos_com, financeiro, gupy, infojobs, linkedin, riovagas, seguradoras,
+from . import (bne, catho, construcao, empregare, empresas, empregos_com, financeiro, gupy, infojobs, linkedin, portais, riovagas, seguradoras,
                talent, tecnologia, telecom, trabalha_brasil, transporte, vagas_com)
 from .base import Cliente, Local, Vaga
 
 FONTES = {m.NOME: m for m in (gupy, linkedin, vagas_com, catho, infojobs, empregos_com, bne, trabalha_brasil,
-                                 empregare, talent, riovagas, seguradoras, empresas, tecnologia, telecom, financeiro, construcao, transporte)}
+                                 empregare, talent, riovagas, seguradoras, empresas, tecnologia, telecom, financeiro, construcao, transporte, portais)}
 
 __all__ = ["FONTES", "Cliente", "Local", "Vaga"]

@@ -71,7 +71,7 @@ def test_infojobs_detalhes():
 def test_todas_as_fontes_registradas():
     assert set(FONTES) == {"Gupy", "LinkedIn", "Vagas.com", "Catho", "InfoJobs", "Empregos.com.br", "BNE",
                            "Trabalha Brasil", "Empregare", "Talent.com", "RIOVAGAS", "Seguradoras", "Empresas", "Tecnologia", "Telecom",
-                           "Financeiro", "Construção", "Transporte"}
+                           "Financeiro", "Construção", "Transporte", "Portais (planilha)"}
 
 
 def test_empregos_com():
@@ -333,3 +333,41 @@ def test_transporte_le_paginas_uma_vez(monkeypatch):
     transporte.buscar(cliente, "advogado")
     transporte.buscar(cliente, "compliance")
     assert chamadas == [1]
+
+
+def test_portais_le_sites_uma_vez(monkeypatch):
+    from jobjur.fontes import portais
+    chamadas = []
+    monkeypatch.setattr(portais, "coletar", lambda cliente: chamadas.append(1) or [])
+    cliente = portais.Cliente(pausa=0)
+    portais.buscar(cliente, "advogado")
+    portais.buscar(cliente, "compliance")
+    assert chamadas == [1]
+
+
+def test_portais_parsers():
+    from jobjur.fontes import portais
+    mp = ('<div class="job-tile"><div class="job-title"><h3><a href="/job-detail/advogado/ref/1">Advogado(a) Pleno</a></h3></div>'
+          '<div class="job-location"> Rio de Janeiro</div></div>'
+          '<div class="job-tile"><div class="job-title"><h3><a href="/job-detail/x/ref/2">Gerente de Vendas</a></h3></div></div>')
+    [v] = portais.parse_michael_page(mp)
+    assert (v.titulo, v.local, v.url) == ("Advogado(a) Pleno", "Rio de Janeiro", "https://www.michaelpage.com.br/job-detail/advogado/ref/1")
+    rs = ('<script>window.__ROUTE_DATA__ = {"searchResults":{"hits":{"hits":[{"_id":"9","_source":{"JobInformation":'
+          '{"Title":"Supervisor Jurídico"},"JobLocation":{"City":"Rio de Janeiro","Region":"Rio de Janeiro"},'
+          '"BlueXSanitized":{"Title":"supervisor-juridico","City":"rio-de-janeiro"}}}]}}};</script>')
+    [v] = portais.parse_randstad(rs)
+    assert v.url == "https://www.randstad.com.br/vagas/supervisor-juridico_rio-de-janeiro_9/"
+    cu = ('<a class="card" href="/vagas/vaga/1/de-Advogado/em-RJ"><span class="card-titulo">Advogado Jr</span>'
+          '<span class="card-meta">Escritório X · Rio de Janeiro/RJ · remoto</span></a>')
+    [v] = portais.parse_curriculum(cu)
+    assert (v.empresa, v.local, v.modalidade) == ("Escritório X", "Rio de Janeiro/RJ", "remoto")
+    nj = ('<a class="opportunity-card" href="https://99jobs.com/x/jobs/5-advogado-trabalhista-pleno?utm=1"><h1>📢 ADVOGADO TRAB...</h1>'
+          '<span class="opportunity-label-acting-mode">Remoto</span><div class="opportunity-address"><p> Não informado </p></div>'
+          '<div class="opportunity-company-infos"><h2> Empresa Y </h2></div></a>')
+    [v] = portais.parse_99jobs(nj)
+    assert (v.titulo, v.local, v.modalidade, v.url) == ("Advogado trabalhista pleno", "", "Remoto", "https://99jobs.com/x/jobs/5-advogado-trabalhista-pleno")
+    se = ('<div data-x="{&quot;listaVagas&quot;:{&quot;vagas&quot;:[{&quot;titulo&quot;:&quot;Advogado J\\u00fanior&quot;,'
+          '&quot;nomeCidade&quot;:&quot;Niter\\u00f3i&quot;,&quot;siglaEstado&quot;:&quot;RJ&quot;,&quot;regime&quot;:&quot;Remoto&quot;,'
+          '&quot;url&quot;:&quot;https://vagas.recrutamentointeligente.net/gruposelpe/detalhe/a/R1&quot;}]}}"></div>')
+    [v] = portais.parse_selpe(se)
+    assert (v.titulo, v.local) == ("Advogado Júnior", "Niterói/RJ")
