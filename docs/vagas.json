@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-16T17:04-03:00",
+ "atualizado_em": "2026-11-17T15:59-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -133,7 +133,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Durão, Almeida e Pontes Advogados Associados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-17T15:59-03:00",
    "fonte": "Gupy",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro, Rio de Janeiro",
@@ -208,7 +209,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Eneva",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-17T15:59-03:00",
    "fonte": "Talent.com",
    "grupo": "top",
    "local": "Rio de Janeiro, RJ",
@@ -373,7 +375,8 @@
    "atencao": "nível pleno.",
    "combina": "Investigações e programas de compliance em escritório de primeira linha.",
    "empresa": "Stocche Forbes",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-17T15:59-03:00",
    "fonte": "Gupy",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro",
@@ -629,6 +632,23 @@
    "revisada": false,
    "titulo": "Advogado(a) Sênior | Mercado de Capitais/Contratos Financeiros",
    "url": "https://genteraizen.gupy.io/job/eyJqb2JJZCI6MTI4NDkzNjUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "advogado-a-senior-precatorios-estaduais-e-municipais-precpago-solucoes-em-credit": {
+   "adicionada_em": "2026-11-17T15:59-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "PRECPAGO - SOLUCOES EM CREDITOS JUDICIAIS LTDA.",
+   "encerrada": false,
+   "fonte": "Curriculum",
+   "grupo": "ressalvas",
+   "local": "Uberlândia/MG",
+   "modalidade": "remoto",
+   "nota": 73,
+   "publicada": "",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) Sênior | Precatórios Estaduais e Municipais",
+   "url": "https://www.curriculum.com.br/vagas/vaga/1730585/de-Advogado-a-Senior-Precatorios-Estaduais-e-Municipais/em-MG/em-Uberlandia"
   },
   "advogado-a-senior-regulatorio-de-energia-decio-freire": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -1255,7 +1275,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Sanchez e Sanchez Sociedade de Advogados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-17T15:59-03:00",
    "fonte": "Gupy",
    "grupo": "ressalvas",
    "local": "",
@@ -2129,6 +2150,23 @@
    "titulo": "Consultor De Relacionamento Jurídico (Case Manager) - Barra Da Tijuca",
    "url": "https://www.infojobs.com.br/vaga-de-consultor-relacionamento-juridico-case-manager-barra-da-tijuca-em-rio-janeiro__11973772.aspx"
   },
+  "consultor-de-seguridad-sap-compliance-grc-stefanini-latam": {
+   "adicionada_em": "2026-11-17T15:59-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Stefanini Latam",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "",
+   "modalidade": "remoto",
+   "nota": 80,
+   "publicada": "2026-11-17",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Consultor de Seguridad SAP – Compliance & GRC",
+   "url": "https://stefaninilatam.gupy.io/job/eyJqb2JJZCI6MTI4ODg1NzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "consultor-juridico-empresarial-empresa-confidencial": {
    "adicionada_em": "2026-10-30T20:25:00-03:00",
    "atencao": "contratação como PJ.",
@@ -2614,6 +2652,23 @@
    "revisada": true,
    "titulo": "Especialista Jurídico Societário",
    "url": "https://wilsonsons.gupy.io/job/eyJqb2JJZCI6MTI1MDA4MTcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "gerente-comercial-assessoria-juridica-pretensao-salarial-campo-grande": {
+   "adicionada_em": "2026-11-17T15:59-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "RIOVAGAS",
+   "grupo": "top",
+   "local": "Rio de Janeiro, RJ",
+   "modalidade": "",
+   "nota": 77,
+   "publicada": "2026-11-16",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Gerente Comercial – Assessoria Juridica – Pretensão Salarial – Campo Grande",
+   "url": "https://riovagas.com.br/riovagas/gerente-comercial-assessoria-juridica-pretensao-salarial-campo-grande/"
   },
   "gerente-de-compliance-e-riscos-mentore": {
    "adicionada_em": "2026-10-31T05:22-03:00",
