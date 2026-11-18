@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-17T15:59-03:00",
+ "atualizado_em": "2026-11-18T15:43-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -869,6 +869,25 @@
    "salario_valor": 3000,
    "titulo": "Advogado – Consultoria em Precatórios – R$ 3.000,00 – Centro RJ",
    "url": "https://riovagas.com.br/riovagas/advogado-consultoria-em-precatorios-r-3-00000-centro/"
+  },
+  "advogado-contencioso": {
+   "adicionada_em": "2026-11-18T15:43-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "InfoJobs",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro - RJ",
+   "modalidade": "híbrido",
+   "nota": 70,
+   "publicada": "2026-11-13",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "R$ 4.200,00 a R$ 5.000,00",
+   "salario_valor": 5000,
+   "titulo": "Advogado Contencioso",
+   "url": "https://www.infojobs.com.br/vaga-de-advogado-contencioso-em-rio-janeiro__12219652.aspx"
   },
   "advogado-contencioso-civel-escritorio-de-advocacia-localizado-no-centro-da-cidad": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1925,6 +1944,25 @@
    "titulo": "Analista Ii - Pcd - Gerência Jurídica – Coordenação de Consultoria Jurídica",
    "url": "https://www.empregos.com.br/vaga/11958201/analista-ii-pcd-gerencia-juridica-coordenacao-de-consultoria-juridica-em-rio-de-janeiro-rj"
   },
+  "analista-juridico-contratos-advogado-contratualista": {
+   "adicionada_em": "2026-11-18T15:43-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "InfoJobs",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro - RJ",
+   "modalidade": "híbrido",
+   "nota": 68,
+   "publicada": "2026-11-18",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "R$ 4.000,00 a R$ 5.000,00",
+   "salario_valor": 5000,
+   "titulo": "Analista Jurídico Contratos / Advogado Contratualista",
+   "url": "https://www.infojobs.com.br/vaga-de-analista-juridico-contratos-advogado-contratualista-em-rio-janeiro__12232698.aspx"
+  },
   "analista-juridico-light-solucoes": {
    "adicionada_em": "2026-11-01T13:38-03:00",
    "atencao": "",
@@ -2044,6 +2082,23 @@
    "revisada": false,
    "titulo": "Analista Sênior de Compliance (Foco DTVM)",
    "url": "https://bancdados.gupy.io/job/eyJqb2JJZCI6MTI4NDIyNDksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "analista-senior-de-compliance-robert-half": {
+   "adicionada_em": "2026-11-18T15:43-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Robert Half",
+   "encerrada": false,
+   "fonte": "Talent.com",
+   "grupo": "top",
+   "local": "Rio de Janeiro",
+   "modalidade": "",
+   "nota": 90,
+   "publicada": "2026-10-29",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Analista Sênior de Compliance",
+   "url": "https://br.talent.com/view?id=643700586286623527"
   },
   "analista-senior-de-compliance-robert-half-cliente-industrial": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -2427,6 +2482,23 @@
    "titulo": "Coordenador Jurídico Contratos e Negócios - GRPCOM",
    "url": "https://grpcom.gupy.io/job/eyJqb2JJZCI6MTI4NzIwMTMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "coordenador-juridico-oxxo-brasil-corporativo": {
+   "adicionada_em": "2026-11-18T15:43-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "OXXO Brasil - Corporativo",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "híbrido",
+   "nota": 65,
+   "publicada": "2026-11-17",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Coordenador Jurídico",
+   "url": "https://vemseroxxocorp.gupy.io/job/eyJqb2JJZCI6MTI4NTM4MjAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "coordenador-juridico-robert-half": {
    "adicionada_em": "2026-11-09T17:31-03:00",
    "atencao": "",
@@ -2686,6 +2758,23 @@
    "revisada": false,
    "titulo": "Gerente de Compliance e Riscos",
    "url": "https://mentore.gupy.io/job/eyJqb2JJZCI6MTI3OTg3MjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "gerente-de-compliance-michael-page-cliente-confidencial": {
+   "adicionada_em": "2026-11-18T15:43-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Michael Page (cliente confidencial)",
+   "encerrada": false,
+   "fonte": "Michael Page",
+   "grupo": "top",
+   "local": "Rio de Janeiro",
+   "modalidade": "",
+   "nota": 80,
+   "publicada": "",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Gerente de Compliance",
+   "url": "https://www.michaelpage.com.br/job-detail/gerente-de-compliance/ref/jn-112026-7147974"
   },
   "gerente-de-compliance-sicpa": {
    "adicionada_em": "2026-10-31T03:32:00-03:00",
