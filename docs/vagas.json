@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-18T15:43-03:00",
+ "atualizado_em": "2026-11-19T15:55-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -38,6 +38,23 @@
    "salario_valor": null,
    "titulo": "Advogado(a) Cível Contencioso Sênior (processualista)",
    "url": "https://www.empregos.com.br/vaga/12005586/advogadoa-civel-contencioso-senior-processualista-em-curitiba-pr"
+  },
+  "advogado-a-civel-saneamento-basico-fragata-e-antunes-advogados": {
+   "adicionada_em": "2026-11-19T15:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Fragata e Antunes Advogados",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "híbrido",
+   "nota": 76,
+   "publicada": "2026-11-19",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) Cível-Saneamento Básico",
+   "url": "https://fragataeantunes.gupy.io/job/eyJqb2JJZCI6MTI5MTU4MzQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-a-consultivo-a-senior-lbca-lee-brock-camargo-advogados": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -184,6 +201,23 @@
    "salario_valor": null,
    "titulo": "Advogado(a) de Contencioso Cível Pleno/Sênior",
    "url": "https://www.catho.com.br/vagas/advogadoa-de-contencioso-civel-plenosenior/39244179"
+  },
+  "advogado-a-de-contratos-senior-neon": {
+   "adicionada_em": "2026-11-19T15:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Neon",
+   "encerrada": false,
+   "fonte": "Financeiro",
+   "grupo": "top",
+   "local": "Remoto",
+   "modalidade": "remoto",
+   "nota": 86,
+   "publicada": "2026-11-16",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) de Contratos Sênior",
+   "url": "https://jobs.lever.co/neon/734be933-af35-44f1-9f01-9dd623312117"
   },
   "advogado-a-direito-empresarial-e-holding-meet-recrutamento-e-selecao": {
    "adicionada_em": "2026-11-03T14:38-03:00",
@@ -903,6 +937,8 @@
    "publicada": "2026-09-09",
    "regiao": "rj",
    "revisada": false,
+   "salario": "R$ 6.000 + 4 benefícios",
+   "salario_valor": 6000,
    "titulo": "Advogado Contencioso Cível",
    "url": "https://www.catho.com.br/vagas/advogado-contencioso-civel/38330451"
   },
@@ -1572,6 +1608,25 @@
    "titulo": "Advogado Sr",
    "url": "https://maxsearch.gupy.io/job/eyJqb2JJZCI6MTI4Mzk5NTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "analista-administrativo-pl-juridico-bpo-juridico": {
+   "adicionada_em": "2026-11-19T15:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "Empregos.com.br",
+   "grupo": "ressalvas",
+   "local": "Barueri, SP",
+   "modalidade": "remoto",
+   "nota": 71,
+   "publicada": "2026-11-19",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "R$ 2.500,00",
+   "salario_valor": 2500,
+   "titulo": "Analista Administrativo Pl - Jurídico | Bpo Jurídico",
+   "url": "https://www.empregos.com.br/vaga/12041804/analista-administrativo-pl-juridico-bpo-juridico-em-barueri-sp"
+  },
   "analista-compliance-pleno-pld-ft-caixa-vida-e-previdencia": {
    "adicionada_em": "2026-10-30T20:05:00-03:00",
    "atencao": "nível pleno.",
@@ -1664,15 +1719,14 @@
    "atencao": "",
    "combina": "",
    "empresa": "Mag seguros",
-   "encerrada": true,
-   "encerrada_em": "2026-11-13T14:35-03:00",
+   "encerrada": false,
    "fonte": "Talent.com",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro, RJ, Brazil",
    "modalidade": "",
    "nota": 68,
    "publicada": "2026-11-12",
-   "reaberta_em": "2026-11-12T17:37-03:00",
+   "reaberta_em": "2026-11-19T15:55-03:00",
    "regiao": "rj",
    "revisada": false,
    "titulo": "Analista de Compliance Pleno - RJ",
@@ -1799,6 +1853,23 @@
    "revisada": false,
    "titulo": "ANALISTA DE COMPLIANCE SÊNIOR (PLD/FT)",
    "url": "https://corporativogrupocasasbahia.gupy.io/job/eyJqb2JJZCI6MTI4MjY5NzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "analista-de-compliance-senior-rj-mag-seguros": {
+   "adicionada_em": "2026-11-19T15:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Mag seguros",
+   "encerrada": false,
+   "fonte": "Talent.com",
+   "grupo": "top",
+   "local": "Rio de Janeiro, RJ, Brazil",
+   "modalidade": "",
+   "nota": 91,
+   "publicada": "2026-11-19",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Analista de Compliance Sênior - RJ",
+   "url": "https://br.talent.com/view?id=644002930779160733"
   },
   "analista-de-governanca-corporativa-pleno-empresa-confidencial": {
    "adicionada_em": "2026-10-30T03:55:00-03:00",
@@ -2135,6 +2206,23 @@
    "titulo": "Analista Tax Digital / Tax Compliance - Rio de Janeiro",
    "url": "https://vemprabip.gupy.io/job/eyJqb2JJZCI6MTI3OTgwMjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "assessor-juridico-agente-fiduciario-pl-vempraot": {
+   "adicionada_em": "2026-11-19T15:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "#vempraot",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "presencial",
+   "nota": 66,
+   "publicada": "2026-11-19",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Assessor Jurídico Agente Fiduciário Pl",
+   "url": "https://vempraot.gupy.io/job/eyJqb2JJZCI6MTI5MjAzNjQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "assistant-manager-sanctions-and-trade-compliance-dp-world": {
    "adicionada_em": "2026-10-30T20:05:00-03:00",
    "atencao": "em inglês.",
@@ -2168,6 +2256,23 @@
    "revisada": false,
    "titulo": "CAS | Advogado(a) Sênior - Negócios",
    "url": "https://vaga-ja.com/vagas/sicredi/cas-advogadoa-senior-negocios?jobBoardSource=gupy_portal"
+  },
+  "compliance-professional-consultor-a-analista-pleno-tim-brasil": {
+   "adicionada_em": "2026-11-19T15:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "TIM Brasil",
+   "encerrada": false,
+   "fonte": "LinkedIn",
+   "grupo": "top",
+   "local": "Rio de Janeiro, Brasil",
+   "modalidade": "",
+   "nota": 83,
+   "publicada": "2026-11-19",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Compliance Professional - Consultor(a) (Analista Pleno)",
+   "url": "https://br.linkedin.com/jobs/view/compliance-professional-consultor-a-analista-pleno-at-tim-brasil-4491652075"
   },
   "consultor-a-juridico-senior-mercado-de-capitais-contratos-financeiros-raizen": {
    "adicionada_em": "2026-11-16T17:04-03:00",
@@ -2758,6 +2863,23 @@
    "revisada": false,
    "titulo": "Gerente de Compliance e Riscos",
    "url": "https://mentore.gupy.io/job/eyJqb2JJZCI6MTI3OTg3MjEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "gerente-de-compliance-michael-page": {
+   "adicionada_em": "2026-11-19T15:55-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Michael Page",
+   "encerrada": false,
+   "fonte": "Talent.com",
+   "grupo": "top",
+   "local": "Rio de Janeiro",
+   "modalidade": "",
+   "nota": 91,
+   "publicada": "2026-11-18",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Gerente de Compliance",
+   "url": "https://br.talent.com/view?id=646770473774091540"
   },
   "gerente-de-compliance-michael-page-cliente-confidencial": {
    "adicionada_em": "2026-11-18T15:43-03:00",
