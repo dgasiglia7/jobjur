@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-19T15:55-03:00",
+ "atualizado_em": "2026-11-20T15:24-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -144,6 +144,23 @@
    "salario_valor": null,
    "titulo": "Advogado(a) | Contencioso de Volume",
    "url": "https://www.empregos.com.br/vaga/11816709/advogadoa-contencioso-de-volume-em-rio-de-janeiro-rj"
+  },
+  "advogado-a-contencioso-estrategico-civel-e-contratos-lbca-lee-brock-camargo-advo": {
+   "adicionada_em": "2026-11-20T15:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "LBCA - Lee, Brock, Camargo Advogados",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "",
+   "modalidade": "remoto",
+   "nota": 97,
+   "publicada": "2026-11-19",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) Contencioso Estratégico | Cível e Contratos",
+   "url": "https://lbca.gupy.io/job/eyJqb2JJZCI6MTI5MjQwNzUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-a-controller-juridico-durao-almeida-e-pontes-advogados-associados": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -543,6 +560,23 @@
    "revisada": true,
    "titulo": "Advogado(a) Sênior, Consultivo, Contratos e Regulatório",
    "url": "https://cartpanda.gupy.io/job/eyJqb2JJZCI6MTI3OTUwMzgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "advogado-a-senior-consultivo-de-marcas-no-exterior-daniel": {
+   "adicionada_em": "2026-11-20T15:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "DANIEL",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro, Rio de Janeiro",
+   "modalidade": "híbrido",
+   "nota": 74,
+   "publicada": "2026-11-20",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) Sênior — Consultivo de Marcas no Exterior",
+   "url": "https://daniel-ip.gupy.io/job/eyJqb2JJZCI6MTI5MjUwNzYsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-a-senior-contencioso-estrategico-dmartini-servicos-eireli": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1216,6 +1250,25 @@
    "titulo": "Advogado Especialista em Seguros, Gestão de Riscos & Sucessão Patrimonial",
    "url": "https://br.linkedin.com/jobs/view/advogado-especialista-em-seguros-gest%C3%A3o-de-riscos-sucess%C3%A3o-patrimonial-at-aline-nascimento-hr-solutions-4485862002"
   },
+  "advogado-generalista-consultivo-secondment-e-commerce-marketplace-sp-dannemann": {
+   "adicionada_em": "2026-11-20T15:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Dannemann",
+   "encerrada": false,
+   "fonte": "Empregos.com.br",
+   "grupo": "top",
+   "local": "Rio de Janeiro, RJ",
+   "modalidade": "presencial",
+   "nota": 75,
+   "publicada": "2026-11-05",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "À combinar",
+   "salario_valor": null,
+   "titulo": "Advogado Generalista Consultivo Secondment – E-commerce – Marketplace Sp",
+   "url": "https://www.empregos.com.br/vaga/11986983/advogado-generalista-consultivo-secondment-e-commerce-marketplace-sp-em-rio-de-janeiro-rj"
+  },
   "advogado-generalista-potencial-rh": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -1661,6 +1714,23 @@
    "titulo": "Analista Compliance Sênior",
    "url": "https://nuclea.gupy.io/job/eyJqb2JJZCI6MTI4NTM2MzIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "analista-compliance-senior-sao-paulo-sp-hsi": {
+   "adicionada_em": "2026-11-20T15:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "HSI",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "presencial",
+   "nota": 73,
+   "publicada": "2026-11-19",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Analista Compliance Sênior - São Paulo/SP",
+   "url": "https://hsi.gupy.io/job/eyJqb2JJZCI6MTI5MjMzODMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "analista-compliance-sr-unidas": {
    "adicionada_em": "2026-11-13T14:35-03:00",
    "atencao": "",
@@ -1719,7 +1789,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Mag seguros",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-20T15:24-03:00",
    "fonte": "Talent.com",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro, RJ, Brazil",
@@ -1859,7 +1930,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Mag seguros",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-20T15:24-03:00",
    "fonte": "Talent.com",
    "grupo": "top",
    "local": "Rio de Janeiro, RJ, Brazil",
