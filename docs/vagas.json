@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-22T14:41-03:00",
+ "atualizado_em": "2026-11-23T18:56-03:00",
  "vagas": {
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -199,6 +199,23 @@
    "salario_valor": null,
    "titulo": "Advogado(a) Corporativo Pleno (Societário)",
    "url": "https://tokiomarine.gupy.io/jobs/12668908"
+  },
+  "advogado-a-corporativo-senior-contratos-ingles-fluente": {
+   "adicionada_em": "2026-11-23T18:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "",
+   "encerrada": false,
+   "fonte": "InfoJobs",
+   "grupo": "sp",
+   "local": "São Paulo - SP",
+   "modalidade": "híbrido",
+   "nota": 69,
+   "publicada": "2026-11-23",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Advogado(A) Corporativo Sênior – Contratos | Inglês Fluente",
+   "url": "https://www.infojobs.com.br/vaga-de-advogadoa-corporativo-senior-contratos-ingles-fluente-em-sao-paulo__12241477.aspx"
   },
   "advogado-a-de-contencioso-civel-pleno-senior-lewarpro-talent-way": {
    "adicionada_em": "2026-11-12T17:02-03:00",
@@ -472,6 +489,23 @@
    "revisada": true,
    "titulo": "Advogado(a) Pleno",
    "url": "https://to.indeed.com/aa9kzl26dxdz"
+  },
+  "advogado-a-pleno-senior-contencioso-civel-e-direito-digital-lbca-lee-brock-camar": {
+   "adicionada_em": "2026-11-23T18:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "LBCA - Lee, Brock, Camargo Advogados",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "",
+   "modalidade": "remoto",
+   "nota": 81,
+   "publicada": "2026-11-23",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) Pleno/Sênior Contencioso Cível e Direito Digital",
+   "url": "https://lbca.gupy.io/job/eyJqb2JJZCI6MTI5MjczMDEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-a-pleno-senior-contencioso-estrategico-empresa-confidencial": {
    "adicionada_em": "2026-11-13T14:35-03:00",
@@ -1330,7 +1364,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Faça parte do nosso time",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-23T18:56-03:00",
    "fonte": "Gupy",
    "grupo": "top",
    "local": "Rio de Janeiro, Rio de Janeiro",
@@ -1857,6 +1892,23 @@
    "titulo": "Analista de Compliance Sênior",
    "url": "https://grupomag.gupy.io/job/eyJqb2JJZCI6MTI3NzU0NjMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "analista-de-compliance-senior-investigacoes-corporativas-construtora-tenda": {
+   "adicionada_em": "2026-11-23T18:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Construtora Tenda",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "híbrido",
+   "nota": 65,
+   "publicada": "2026-11-23",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Analista de Compliance Sênior - Investigações Corporativas",
+   "url": "https://tenda.gupy.io/job/eyJqb2JJZCI6MTI5MjYwMDIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "analista-de-compliance-senior-itau-unibanco": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -2131,7 +2183,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "LBCA - Lee, Brock, Camargo Advogados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-23T18:56-03:00",
    "fonte": "Gupy",
    "grupo": "ressalvas",
    "local": "",
@@ -2750,6 +2803,23 @@
    "revisada": true,
    "titulo": "Especialista de Compliance",
    "url": "https://talentoslight.gupy.io/job/eyJqb2JJZCI6MTI2MzQ4MTEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "especialista-de-compliance-regulatorio-banco-genial-investimentos": {
+   "adicionada_em": "2026-11-23T18:56-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Genial Investimentos",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "presencial",
+   "nota": 67,
+   "publicada": "2026-11-23",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Especialista de Compliance Regulatório — Banco",
+   "url": "https://genial.gupy.io/job/eyJqb2JJZCI6MTI5Mjg5NjIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "especialista-em-contratos-advogado-a-pleno-re-green-participacoes-s-a": {
    "adicionada_em": "2026-11-09T17:31-03:00",
