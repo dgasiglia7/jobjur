@@ -1,6 +1,25 @@
 {
- "atualizado_em": "2026-11-23T18:56-03:00",
+ "atualizado_em": "2026-11-24T17:32-03:00",
  "vagas": {
+  "1138-advogado-contencioso-civel-senior-mauricio-massonari-fudo": {
+   "adicionada_em": "2026-11-24T17:32-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "MAURICIO MASSONARI FUDO",
+   "encerrada": false,
+   "fonte": "InfoJobs",
+   "grupo": "sp",
+   "local": "São Paulo - SP",
+   "modalidade": "híbrido",
+   "nota": 69,
+   "publicada": "2026-11-24",
+   "regiao": "sp",
+   "revisada": false,
+   "salario": "R$ 10.000,00 a R$ 12.000,00",
+   "salario_valor": 12000,
+   "titulo": "1138 - Advogado Contencioso Cível Sênior",
+   "url": "https://www.infojobs.com.br/vaga-de-1138-advogado-contencioso-civel-senior-em-sao-paulo__12247247.aspx"
+  },
   "advogada-o-pleno-contencioso-civel-estrategico-dumortout-de-mendonca": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -2142,6 +2161,23 @@
    "titulo": "Analista Ii - Pcd - Gerência Jurídica – Coordenação de Consultoria Jurídica",
    "url": "https://www.empregos.com.br/vaga/11958201/analista-ii-pcd-gerencia-juridica-coordenacao-de-consultoria-juridica-em-rio-de-janeiro-rj"
   },
+  "analista-juridico-cadastro-e-pre-cadastro-sem-oab-lbca-lee-brock-camargo-advogad": {
+   "adicionada_em": "2026-11-24T17:32-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "LBCA - Lee, Brock, Camargo Advogados",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "ressalvas",
+   "local": "",
+   "modalidade": "remoto",
+   "nota": 65,
+   "publicada": "2026-11-24",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Analista Jurídico (Cadastro e Pré cadastro) - SEM OAB",
+   "url": "https://lbca.gupy.io/job/eyJqb2JJZCI6MTI5MzcwNjMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "analista-juridico-contratos-advogado-contratualista": {
    "adicionada_em": "2026-11-18T15:43-03:00",
    "atencao": "",
@@ -2443,7 +2479,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Stefanini Latam",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-24T17:32-03:00",
    "fonte": "Gupy",
    "grupo": "top",
    "local": "",
@@ -2697,6 +2734,23 @@
    "salario_valor": null,
    "titulo": "Coordenador Jurídico - Área Cível",
    "url": "https://br.linkedin.com/jobs/view/coordenador-jur%C3%ADdico-%C3%A1rea-c%C3%ADvel-at-cavalcante-ramos-advogados-4483907271"
+  },
+  "coordenador-juridico-confidencial": {
+   "adicionada_em": "2026-11-24T17:32-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Confidencial",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São José do Rio Preto, São Paulo",
+   "modalidade": "presencial",
+   "nota": 69,
+   "publicada": "2026-11-24",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "COORDENADOR JURÍDICO",
+   "url": "https://confidencialvagas1.gupy.io/job/eyJqb2JJZCI6MTI5MzUwMzksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "coordenador-juridico-contratos-e-negocios-grpcom-grpcom": {
    "adicionada_em": "2026-11-11T14:46-03:00",
@@ -3077,6 +3131,23 @@
    "titulo": "Gerente de Riscos, Compliance e Controles Internos",
    "url": "https://www.vagas.com.br/vagas/v2841552/gerente-de-riscos-compliance-e-controles-internos"
   },
+  "gerente-juridico-a-michael-page-cliente-confidencial": {
+   "adicionada_em": "2026-11-24T17:32-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Michael Page (cliente confidencial)",
+   "encerrada": false,
+   "fonte": "Michael Page",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro",
+   "modalidade": "",
+   "nota": 74,
+   "publicada": "",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Gerente Jurídico(a)",
+   "url": "https://www.michaelpage.com.br/job-detail/gerente-juridico/ref/jn-112026-7147989"
+  },
   "gerente-juridico-compliance-latam-nadir": {
    "adicionada_em": "2026-11-03T21:01-03:00",
    "atencao": "presencial em São Paulo, com escopo América Latina (espanhol ou inglês provável).",
@@ -3145,6 +3216,23 @@
    "revisada": true,
    "titulo": "Gerente Jurídico",
    "url": "https://www.catho.com.br/vagas/gerente-juridico/39004711"
+  },
+  "gerente-juridico-michael-page": {
+   "adicionada_em": "2026-11-24T17:32-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Michael Page",
+   "encerrada": false,
+   "fonte": "Talent.com",
+   "grupo": "top",
+   "local": "Rio de Janeiro",
+   "modalidade": "",
+   "nota": 77,
+   "publicada": "2026-11-24",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Gerente Juridico",
+   "url": "https://br.talent.com/view?id=647364395741686561"
   },
   "gerente-juridico-nova-iguacu-unig-carreiras": {
    "adicionada_em": "2026-11-09T17:31-03:00",
