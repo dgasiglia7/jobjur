@@ -1,0 +1,61 @@
+name: Republicar painel se a publicação falhou
+
+# A cada 3 horas confere se o site (GitHub Pages) mostra a versão mais recente das vagas.
+# Se a última publicação falhou (instabilidade do GitHub), publica de novo. Não faz busca nova.
+on:
+  schedule:
+    - cron: "30 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: republicar
+  cancel-in-progress: false
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    outputs:
+      desatualizado: ${{ steps.conferir.outputs.desatualizado }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - id: conferir
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          site=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq .html_url)
+          desatualizado=nao
+          for arquivo in vagas.json status.json index.html; do
+            publicado=$(curl -fsSL "${site%/}/$arquivo?t=$(date +%s)" | sha256sum | cut -d' ' -f1)
+            local=$(sha256sum "docs/$arquivo" | cut -d' ' -f1)
+            if [ "$publicado" != "$local" ]; then
+              echo "$arquivo no site é diferente do repositório."
+              desatualizado=sim
+            fi
+          done
+          [ "$desatualizado" = nao ] && echo "O site está atualizado." || echo "Vou publicar de novo."
+          echo "desatualizado=$desatualizado" >> "$GITHUB_OUTPUT"
+
+  publicar:
+    needs: conferir
+    if: needs.conferir.outputs.desatualizado == 'sim'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
