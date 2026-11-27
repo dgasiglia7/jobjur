@@ -54,12 +54,15 @@ input[type=search]{flex:1;min-width:160px}
 .group-title{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:22px 0 8px;font-weight:600}
 .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--pend);border-radius:12px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);display:grid;grid-template-columns:52px 1fr;gap:4px 14px}
 .card{position:relative}
-.fav{position:absolute;top:8px;right:8px;width:36px;height:36px;border:0;border-radius:8px;background:transparent;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:0}
+.topo{position:absolute;top:8px;right:8px;display:flex;align-items:center;gap:2px}
+.entrou{font-size:12px;color:var(--muted);white-space:nowrap;padding:0 4px}
+.fav{width:36px;height:36px;border:0;border-radius:8px;background:transparent;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:0}
 .fav:hover:not(:disabled){background:var(--accent-soft)}
 .fav.on{color:#e0a800}
 .fav:disabled{cursor:default}
 .fav:disabled:not(.on){display:none}
-.card .t{padding-right:34px}
+.card .t{padding-right:150px}
+@media (max-width:640px){.card .t{padding-right:0;margin-top:22px}}
 .card.enviado{border-left-color:var(--sent)}
 .card.cadastrado{border-left-color:var(--reg)}
 .card.descartada,.card.duplicada{border-left-color:var(--disc);opacity:.7}
@@ -206,6 +209,8 @@ const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k
 let token=store.get("jobjur_token");
 const fmt=iso=>{if(!iso)return"";const d=new Date(iso);if(isNaN(d))return"";
   return d.toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo",day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}).replace(","," às");};
+const entrou=iso=>{if(!iso)return"";const d=new Date(iso);if(isNaN(d))return"";
+  return d.toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}).replace(",","");};
 const dia=iso=>{if(!iso)return"";const [y,m,d]=iso.slice(0,10).split("-");return d&&m?`${d}/${m}`:"";};
 function toast(t){const e=$("toast");e.textContent=t;e.classList.add("show");clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove("show"),2600);}
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
@@ -286,7 +291,7 @@ function render(){
       const s=efetivo(v);
       const nova=v.adicionada_em&&new Date(v.adicionada_em).getTime()>recente&&s==="pendente";
       html+=`<article class="card ${esc(s)}" data-id="${esc(v.id)}">
-        <button class="fav${v.favorito?" on":""}" aria-pressed="${!!v.favorito}" title="${v.favorito?"Tirar das favoritas":"Salvar nas favoritas"}" aria-label="${v.favorito?"Tirar das favoritas":"Salvar nas favoritas"}" ${pode?"":"disabled"}>${v.favorito?"★":"☆"}</button>
+        <div class="topo">${v.adicionada_em&&entrou(v.adicionada_em)?`<span class="entrou" title="Entrou no painel em ${fmt(v.adicionada_em)}">entrou em ${entrou(v.adicionada_em)}</span>`:""}<button class="fav${v.favorito?" on":""}" aria-pressed="${!!v.favorito}" title="${v.favorito?"Tirar das favoritas":"Salvar nas favoritas"}" aria-label="${v.favorito?"Tirar das favoritas":"Salvar nas favoritas"}" ${pode?"":"disabled"}>${v.favorito?"★":"☆"}</button></div>
         <div class="nota">${esc(v.nota??"–")}<small>nota</small></div>
         <h2 class="t"><a href="${esc(safeUrl(v.url))}" target="_blank" rel="noopener">${esc(v.titulo)}</a>${nova?'<span class="badge">nova</span>':""}${s==="encerrada"&&(v.status||"pendente")!=="encerrada"?'<span class="badge closed">encerrada no site</span>':""}${v.revisada===false?'<span class="badge auto" title="Encontrada pela busca automática, ainda sem revisão">automática</span>':""}</h2>
         <div class="meta"><span>${esc(v.empresa)}</span><span>${esc(v.local)}</span>${v.modalidade?`<span>${esc(v.modalidade)}</span>`:""}${v.publicada?`<span>publicada em ${dia(v.publicada)}</span>`:""}${v.salario?`<span class="sal">${esc(v.salario)}</span>`:""}<span>via ${esc(v.fonte)}</span></div>
