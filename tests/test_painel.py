@@ -109,3 +109,34 @@ def test_salario_entra_no_painel_e_completa_vagas_antigas(tmp_path):
     painel.atualizar([dict(vaga("Gerente Jurídico", "https://c", 80), salario="R$ 20.000,00")], arq, 65)
     g = json.loads(arq.read_text())["vagas"][gerente]
     assert g["salario_valor"] == 20000 and g["atencao"] == "nota manual"
+
+
+def test_recalcula_notas_quando_o_perfil_muda(tmp_path):
+    from jobjur import recalculo
+    from jobjur.perfil import Perfil
+
+    arq, desc = tmp_path / "vagas.json", tmp_path / "descricoes.json"
+    quando = datetime(2026, 11, 24, 17, 32, tzinfo=painel.FUSO)
+    gerente = dict(vaga("Gerente Jurídico", "https://a", 77), publicada="2026-11-24",
+                   descricao="Gestão de contratos e compliance")
+    antiga = dict(vaga("Coordenador Jurídico", "https://b", 70), publicada="2026-11-01")
+    painel.atualizar([gerente, antiga], arq, 65, quando)
+    recalculo.guardar_descricoes([gerente], arq, desc)
+
+    base = dict(nome="X", cidade="Rio de Janeiro", uf="RJ", anos_experiencia=5, senioridade="especialista",
+                areas_atuacao=[], setores=[], tipo_atuacao=[], formacao=[], certificacoes=[], idiomas=[],
+                experiencias=[], cargos_alvo=[], palavras_chave=["contratos"])
+    antes = Perfil(**base)
+    assert recalculo.recalcular(antes, arq, desc) is not None  # primeiro cálculo guarda o hash
+    nota_antes = json.loads(arq.read_text())["vagas"][painel.id_vaga("Gerente Jurídico", "ACME")]["nota"]
+    assert recalculo.recalcular(antes, arq, desc) is None  # mesmo perfil: nada muda
+
+    depois = Perfil(**{**base, "senioridade": "coordenação", "palavras_chave": ["contratos", "gerente", "compliance"]})
+    assert recalculo.recalcular(depois, arq, desc) >= 1
+    dados = json.loads(arq.read_text())
+    g = dados["vagas"][painel.id_vaga("Gerente Jurídico", "ACME")]
+    assert g["nota"] > nota_antes and g["grupo"] == "top"
+    assert g["adicionada_em"] == "2026-11-24T17:32-03:00"
+    assert dados["perfil_hash"] == recalculo.hash_perfil(depois)
+    # vaga sem texto guardado não perde nota por falta de dados
+    assert dados["vagas"][painel.id_vaga("Coordenador Jurídico", "ACME")]["nota"] >= 70

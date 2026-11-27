@@ -11,7 +11,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from .coleta import coletar
-from . import painel
+from . import painel, recalculo
 from .fontes import FONTES, Local, Vaga
 from .perfil import Perfil
 from .ranking import ranquear
@@ -52,6 +52,8 @@ def main() -> None:
     parser.add_argument("--saida", type=Path, default=Path("dados"), help="pasta de saída")
     parser.add_argument("--painel", type=Path, help="também acrescenta as vagas boas a este vagas.json do painel")
     parser.add_argument("--nota-painel", type=int, default=painel.NOTA_MINIMA, help="nota mínima para entrar no painel")
+    parser.add_argument("--descricoes", type=Path, default=recalculo.DESCRICOES_PADRAO,
+                        help="onde guardar o texto das vagas do painel, usado para recalcular as notas")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
@@ -80,6 +82,10 @@ def main() -> None:
     if args.painel:
         novas = painel.atualizar([v.to_dict() for v in vagas], args.painel, args.nota_painel, quando)
         logging.info("%d vagas novas no painel %s", novas, args.painel)
+        recalculo.guardar_descricoes([v.to_dict() for v in vagas], args.painel, args.descricoes)
+        mudaram = recalculo.recalcular(perfil, args.painel, args.descricoes)
+        if mudaram is not None:
+            logging.info("Perfil mudou: notas do painel recalculadas (%d mudaram)", mudaram)
 
 
 if __name__ == "__main__":

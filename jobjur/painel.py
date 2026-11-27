@@ -1,7 +1,8 @@
 """Mantém docs/vagas.json, a lista de vagas do painel publicado no GitHub Pages.
 
 Cada busca acrescenta as vagas novas com nota suficiente; as que já estão no painel
-não são alteradas, para não perder anotações feitas à mão. O status de candidatura
+não são alteradas, para não perder anotações feitas à mão. A exceção é a nota, que é
+recalculada para todas as vagas quando o perfil muda (veja jobjur/recalculo.py). O status de candidatura
 (currículo enviado, cadastrada...) fica em outro arquivo, docs/status.json, que só o
 painel escreve, então a busca nunca apaga o que a Daniele marcou.
 
