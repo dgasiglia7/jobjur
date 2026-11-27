@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-26T23:20-03:00",
+ "atualizado_em": "2026-11-27T16:24-03:00",
  "perfil_hash": "d8935e0dd8bf50aa",
  "vagas": {
   "1138-advogado-contencioso-civel-senior-mauricio-massonari-fudo": {
@@ -83,7 +83,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Fragata e Antunes Advogados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-27T16:24-03:00",
    "fonte": "Gupy",
    "grupo": "top",
    "local": "Rio de Janeiro, Rio de Janeiro",
@@ -164,6 +165,23 @@
    "revisada": true,
    "titulo": "Advogado(a) Contencioso Cível Estratégico",
    "url": "https://lbca.gupy.io/job/eyJqb2JJZCI6MTI3ODg2ODEsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "advogado-a-contencioso-civel-estrategico-lbca-lee-brock-camargo-advogados": {
+   "adicionada_em": "2026-11-27T16:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "LBCA - Lee, Brock, Camargo Advogados",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "top",
+   "local": "",
+   "modalidade": "remoto",
+   "nota": 91,
+   "publicada": "2026-11-27",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado(a) Contencioso Cível Estratégico",
+   "url": "https://lbca.gupy.io/job/eyJqb2JJZCI6MTI5NTU3NTUsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "advogado-a-contencioso-de-volume": {
    "adicionada_em": "2026-10-31T05:22-03:00",
@@ -1726,6 +1744,23 @@
    "titulo": "ADVOGADO SÊNIOR CÍVEL REGULATÓRIO - ENERGIA E/OU GÁS",
    "url": "https://www.infojobs.com.br/vaga-de-advogado-senior-civel-regulatorio-energia-eou-gas-em-rio-janeiro__11980022.aspx"
   },
+  "advogado-senior-claro": {
+   "adicionada_em": "2026-11-27T16:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Claro",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "presencial",
+   "nota": 66,
+   "publicada": "2026-11-18",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Advogado - Sênior",
+   "url": "https://vempraclaro.gupy.io/job/eyJqb2JJZCI6MTI5MDc0NTgsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "advogado-senior-comercial-juridico-corporativo": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -1904,6 +1939,23 @@
    "titulo": "Advogado Sênior",
    "url": "https://davitacorporativo.gupy.io/job/eyJqb2JJZCI6MTI4NTQ3ODQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "advogado-senior-em-contencioso-e-trabalhista-norte-energia-sa": {
+   "adicionada_em": "2026-11-27T16:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Norte Energia SA",
+   "encerrada": false,
+   "fonte": "Vagas.com",
+   "grupo": "ressalvas",
+   "local": "Rio de Janeiro / RJ",
+   "modalidade": "",
+   "nota": 68,
+   "publicada": "2026-11-27",
+   "regiao": "rj",
+   "revisada": false,
+   "titulo": "Advogado Sênior em Contencioso e Trabalhista",
+   "url": "https://www.vagas.com.br/vagas/v2844886/advogado-senior-em-contencioso-e-trabalhista"
+  },
   "advogado-senior-empresa-confidencial": {
    "adicionada_em": "2026-10-31T05:22-03:00",
    "atencao": "",
@@ -2061,6 +2113,23 @@
    "titulo": "Analista Compliance Sênior - São Paulo/SP",
    "url": "https://hsi.gupy.io/job/eyJqb2JJZCI6MTI5MjMzODMsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
+  "analista-compliance-sr-pagina-de-carreira": {
+   "adicionada_em": "2026-11-27T16:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Página de Carreira",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "outras",
+   "local": "Fortaleza, Ceará",
+   "modalidade": "presencial",
+   "nota": 79,
+   "publicada": "2026-11-27",
+   "regiao": "outra",
+   "revisada": false,
+   "titulo": "ANALISTA COMPLIANCE SR",
+   "url": "https://hapvidandi.gupy.io/job/eyJqb2JJZCI6MTI5NTUyMDQsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
   "analista-compliance-sr-unidas": {
    "adicionada_em": "2026-11-13T14:35-03:00",
    "atencao": "",
@@ -2150,6 +2219,23 @@
    "revisada": false,
    "titulo": "Analista de Compliance Sênior: Asset Management (FII, FIDC e FIP)",
    "url": "https://hsi.gupy.io/job/eyJqb2JJZCI6MTI3MjUwNjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "analista-de-compliance-senior-dexco": {
+   "adicionada_em": "2026-11-27T16:24-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Dexco",
+   "encerrada": false,
+   "fonte": "Gupy",
+   "grupo": "sp",
+   "local": "São Paulo, São Paulo",
+   "modalidade": "presencial",
+   "nota": 85,
+   "publicada": "2026-11-27",
+   "regiao": "sp",
+   "revisada": false,
+   "titulo": "Analista de Compliance Sênior",
+   "url": "https://dexco.gupy.io/job/eyJqb2JJZCI6MTI5NTQyNzcsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
   },
   "analista-de-compliance-senior-foco-em-investigacoes-corporativas-unicred": {
    "adicionada_em": "2026-11-03T21:01-03:00",
@@ -2893,14 +2979,14 @@
    "atencao": "",
    "combina": "",
    "empresa": "Stefanini Latam",
-   "encerrada": true,
-   "encerrada_em": "2026-11-24T17:32-03:00",
+   "encerrada": false,
    "fonte": "Gupy",
    "grupo": "top",
    "local": "",
    "modalidade": "remoto",
    "nota": 80,
    "publicada": "2026-11-17",
+   "reaberta_em": "2026-11-27T16:24-03:00",
    "regiao": "rj",
    "revisada": false,
    "titulo": "Consultor de Seguridad SAP – Compliance & GRC",
@@ -4340,7 +4426,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Décio Freire Advogados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-27T16:24-03:00",
    "fonte": "Gupy",
    "grupo": "top",
    "local": "Rio de Janeiro, Rio de Janeiro",
