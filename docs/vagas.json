@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-27T16:24-03:00",
+ "atualizado_em": "2026-11-28T15:01-03:00",
  "perfil_hash": "d8935e0dd8bf50aa",
  "vagas": {
   "1138-advogado-contencioso-civel-senior-mauricio-massonari-fudo": {
@@ -1123,7 +1123,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Cavalcante Ramos Advogados",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-28T15:01-03:00",
    "fonte": "Talent.com",
    "grupo": "ressalvas",
    "local": "Rio de Janeiro, RJ, Brazil",
@@ -1618,6 +1619,25 @@
    "revisada": false,
    "titulo": "Advogado Pleno - Cível Contencioso",
    "url": "https://limalobatocolen.gupy.io/job/eyJqb2JJZCI6MTI4NjEyNzAsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal"
+  },
+  "advogado-pleno-potencial-rh": {
+   "adicionada_em": "2026-11-28T15:01-03:00",
+   "atencao": "",
+   "combina": "",
+   "empresa": "Potencial RH",
+   "encerrada": false,
+   "fonte": "Empregos.com.br",
+   "grupo": "top",
+   "local": "Rio de Janeiro, RJ",
+   "modalidade": "presencial",
+   "nota": 92,
+   "publicada": "2026-11-28",
+   "regiao": "rj",
+   "revisada": false,
+   "salario": "À combinar",
+   "salario_valor": null,
+   "titulo": "Advogado Pleno",
+   "url": "https://www.empregos.com.br/vaga/12060703/advogado-pleno-em-rio-de-janeiro-rj"
   },
   "advogado-pleno-rhopen-consultoria": {
    "adicionada_em": "2026-11-14T13:26-03:00",
@@ -2979,7 +2999,8 @@
    "atencao": "",
    "combina": "",
    "empresa": "Stefanini Latam",
-   "encerrada": false,
+   "encerrada": true,
+   "encerrada_em": "2026-11-28T15:01-03:00",
    "fonte": "Gupy",
    "grupo": "top",
    "local": "",
